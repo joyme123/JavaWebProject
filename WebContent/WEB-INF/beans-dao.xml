@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd   
+           http://www.springframework.org/schema/aop  
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd   
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd  
+           http://www.springframework.org/schema/tx  
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">  
+  
+  
+    <!-- hibernatedao的模板类 HibernateDaoSuppor 抽象类不可以实例化 加上abstract="true" -->  
+    <bean id="hibernateDaoSupport"  
+        class="org.springframework.orm.hibernate3.support.HibernateDaoSupport"  
+        abstract="true">  
+        <property name="sessionFactory" ref="sessionFactory"></property>  
+    </bean>  
+    <!-- admin的dao对象 -->  
+    <bean id="adminDaoImpl" class="com.ssh.dao.AdminDaoImpl"  
+        parent="hibernateDaoSupport" />  
+</beans>  

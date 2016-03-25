@@ -3,15 +3,24 @@ xmlns="http://java.sun.com/xml/ns/j2ee"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-	<display-name>Spring MVC Application</display-name>
-    <servlet>    
-		<servlet-name>JavaWebProject</servlet-name>
-		<servlet-class>
-			org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-		<filter>  
+	<display-name>SSH Application</display-name>	
+	<welcome-file-list>  
+        <welcome-file>index.html</welcome-file>  
+        <welcome-file>index.htm</welcome-file>  
+        <welcome-file>index.jsp</welcome-file>  
+        <welcome-file>default.html</welcome-file>  
+        <welcome-file>default.htm</welcome-file>  
+        <welcome-file>default.jsp</welcome-file>  
+    </welcome-file-list> 
+    <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/JavaWebProject-servlet.xml</param-value> 
+	</context-param> 
+	<listener> 
+		<listener-class> org.springframework.web.context.ContextLoaderListener </listener-class> 
+	</listener>
+	<!-- 使用spring解决struts2的中文乱码的问题 -->  
+	<filter>  
         <filter-name>characterEncodingFilter</filter-name>  
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
         <init-param>  
@@ -27,16 +36,29 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <filter-name>characterEncodingFilter</filter-name>  
         <url-pattern>/*</url-pattern>  
     </filter-mapping> 
-	<servlet-mapping>
-		<servlet-name>JavaWebProject</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/JavaWebProject-servlet.xml</param-value> 
-	</context-param> 
-	<listener> 
-		<listener-class> org.springframework.web.context.ContextLoaderListener </listener-class> 
-	</listener>
+   	<!-- struts2 的配置 -->  
+   	<filter>  
+    	<filter-name>struts2</filter-name>  
+   	 	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+ 	</filter>  
+ 	<filter-mapping>  
+    	<filter-name>struts2</filter-name>  
+    	<url-pattern>/*</url-pattern>  
+  	</filter-mapping> 
+  	<!-- 配置 使用spring解决hibernate因session关闭导致的延迟加载例外问题 -->  
+  	<filter>  
+        <filter-name>OpenSessionInViewFilter</filter-name>  
+        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>  
+        <init-param>  
+            <!-- 指定org.springframework.orm.hibernate3.LocalSessionFactoryBean在spring配置文件中的名称,默认值为sessionFactory.如果LocalSessionFactoryBean在spring中的名称不是sessionFactory,该参数一定要指定,否则会出现找不到sessionFactory的例外 -->  
+            <param-name>sessionFactoryBeanName</param-name>  
+            <param-value>sessionFactory</param-value>  
+        </init-param>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>OpenSessionInViewFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping> 
+
  
 </web-app>

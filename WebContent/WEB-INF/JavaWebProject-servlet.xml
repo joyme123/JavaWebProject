@@ -9,12 +9,46 @@
 	http://www.springframework.org/schema/mvc 
     http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	">
-	<context:component-scan base-package="com" />
-	<mvc:resources mapping="/Resources/**" location="/Resources/css" />
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"  
+        destroy-method="close">  
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>  
+        <property name="jdbcUrl" value="jdbc:mysql://115.29.114.202:3306/java?useUnicode=true&amp;characterEncoding=UTF-8" />  
+        <property name="user" value="5019" />  
+        <property name="password" value="5019" />  
+        <!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->  
+        <property name="initialPoolSize" value="1" />  
+        <!--连接池中保留的最小连接数。 -->  
+        <property name="minPoolSize" value="1" />  
+        <!--连接池中保留的最大连接数。Default: 15 -->  
+        <property name="maxPoolSize" value="300" />  
+        <!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->  
+        <property name="maxIdleTime" value="60" />  
+        <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->  
+        <property name="acquireIncrement" value="5" />  
+        <!--每60秒检查所有连接池中的空闲连接。Default: 0 -->  
+        <property name="idleConnectionTestPeriod" value="60" />  
+    </bean>  
+    <bean id="sessionFactory"  
+        class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">  
+        <!-- 注入数据源 -->  
+        <property name="dataSource" ref="dataSource"></property>  
+        <!-- hibernate映射文件的引入 -->  
+        <property name="mappingResources">  
+            <list>  
+                <value>com/ssh/domain/admin.xml</value>  
+            </list>  
+        </property>  
+        <!-- 配置hibernate属性的设置 -->  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>  
+                <prop key="hibernate.format_sql">true</prop>  
+            </props>  
+        </property>  
+    </bean>  
+	<import resource="beans-dao.xml" />  
+	<import resource="beans-service.xml" />  
+	<import resource="beans-action.xml" />  
 </beans>

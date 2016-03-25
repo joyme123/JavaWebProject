@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts>  
+    <package name="admin" extends="struts-default" namespace="/">  
+        <!-- class的名称  等于spring中action配置文件中的id名称 -->  
+        <action name="admin" class="com.ssh.action.AdminAction" method="login">  
+            <result name="input">/login.jsp</result>
+            <result name="success">/index.jsp</result>  
+        </action>  
+    </package>  
+</struts>  

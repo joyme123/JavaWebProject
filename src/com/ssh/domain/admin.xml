@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.ssh.domain">  
+    <class name="Admin" table="admin">  
+        <id name="id" column="id">  
+            <generator class="native"></generator>  
+        </id>  
+        <property name="name" column="name"></property>  
+        <property name="pass" column="pass"></property>  
+    </class>  
+</hibernate-mapping>  
