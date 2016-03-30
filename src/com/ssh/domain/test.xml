@@ -3,11 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ssh.domain">  
-    <class name="Admin" table="admin">  
+    <class name="Test" table="test">  
         <id name="id" column="id">  
             <generator class="native"></generator>  
         </id>  
-        <property name="name" column="name"></property>  
-        <property name="pass" column="pass"></property>  
+        <property name="testname" column="name"></property>  
+        <property name="testpass" column="pass"></property>  
     </class>  
 </hibernate-mapping>  

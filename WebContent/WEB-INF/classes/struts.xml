@@ -6,11 +6,7 @@
     <!--使用spring创建管理struts2的action操作 -->  
     <constant name="struts.objectFactory" value="spring"/>  
     <constant name="struts.devMode" value="true" />
-    <package name="admin" extends="struts-default" namespace="/">  
-        <!-- class的名称  等于spring中action配置文件中的id名称 -->  
-        <action name="adminLogin" class="com.ssh.action.AdminAction" method="login">  
-            <result name="input">/login.jsp</result>
-            <result name="success">/index.jsp</result>  
-        </action>  
-    </package>  
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <include file="struts-admin.xml"/>
+    <include file="struts-carModel.xml"/>
 </struts>  

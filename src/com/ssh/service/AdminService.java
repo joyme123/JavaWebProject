@@ -1,5 +1,13 @@
 package com.ssh.service;
-import com.ssh.dao.AdminDao;  
-public interface AdminService extends AdminDao{  
-  
-} 
+
+import org.hibernate.HibernateException;
+
+import com.ssh.domain.Admin;
+
+public interface AdminService {
+	public void update(Admin admin);
+
+	public void regist(Admin admin) throws HibernateException;
+
+	public void login(Admin admin) throws HibernateException;
+}

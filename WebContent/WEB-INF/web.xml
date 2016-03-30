@@ -5,12 +5,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>SSH Application</display-name>	
 	<welcome-file-list>  
-        <welcome-file>index.html</welcome-file>  
-        <welcome-file>index.htm</welcome-file>  
         <welcome-file>index.jsp</welcome-file>  
-        <welcome-file>default.html</welcome-file>  
-        <welcome-file>default.htm</welcome-file>  
-        <welcome-file>default.jsp</welcome-file>  
     </welcome-file-list> 
     <context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -50,7 +45,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <filter-name>OpenSessionInViewFilter</filter-name>  
         <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>  
         <init-param>  
-            <!-- 指定org.springframework.orm.hibernate3.LocalSessionFactoryBean在spring配置文件中的名称,默认值为sessionFactory.如果LocalSessionFactoryBean在spring中的名称不是sessionFactory,该参数一定要指定,否则会出现找不到sessionFactory的例外 -->  
+            <!-- 指定org.springframework.orm.hibernate5.LocalSessionFactoryBean在spring配置文件中的名称,默认值为sessionFactory.如果LocalSessionFactoryBean在spring中的名称不是sessionFactory,该参数一定要指定,否则会出现找不到sessionFactory的例外 -->  
             <param-name>sessionFactoryBeanName</param-name>  
             <param-value>sessionFactory</param-value>  
         </init-param>  

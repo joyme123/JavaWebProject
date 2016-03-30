@@ -36,6 +36,8 @@
         <property name="mappingResources">  
             <list>  
                 <value>com/ssh/domain/admin.xml</value>  
+                <value>com/ssh/domain/test.xml</value>
+                <value>com/ssh/domain/carmodel.xml</value>
             </list>  
         </property>  
         <!-- 配置hibernate属性的设置 -->  
@@ -48,7 +50,36 @@
             </props>  
         </property>  
     </bean>  
-	<import resource="beans-dao.xml" />  
-	<import resource="beans-service.xml" />  
-	<import resource="beans-action.xml" />  
+    <bean id="adminDao" class="com.ssh.dao.AdminDaoImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="adminService" class="com.ssh.service.AdminServiceImpl">
+		<property name="adminDao">
+			<ref bean="adminDao"></ref>
+		</property>
+	</bean>
+	<bean id="adminAction" class="com.ssh.action.AdminAction" scope="prototype">
+		<property name="adminService">
+			<ref bean="adminService"></ref>
+		</property>
+	</bean>
+	
+	<bean id="carModelDao" class="com.ssh.dao.CarModelDaoImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="carModelService" class="com.ssh.service.CarModelServiceImpl">
+		<property name="carModelDao">
+			<ref bean="carModelDao"></ref>
+		</property>
+	</bean>
+	<bean id="addCarModelAction" class="com.ssh.action.addCarModelAction" scope="prototype">
+		<property name="carModelService">
+			<ref bean="carModelService"></ref>
+		</property>
+	</bean>
+
 </beans>

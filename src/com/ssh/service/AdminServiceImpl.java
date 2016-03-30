@@ -1,15 +1,33 @@
 package com.ssh.service;
 
+import org.hibernate.HibernateException;
+
 import com.ssh.dao.AdminDao;
-import com.ssh.domain.Admin;  
-public class AdminServiceImpl implements AdminService {  
-  
-    private AdminDao adminDao;  
-    public void setAdminDao(AdminDao adminDao) {  
-        this.adminDao = adminDao;  
-    }  
-    public Admin login(String name, String pass) {  
-        // TODO Auto-generated method stub  
-        return adminDao.login(name, pass);  
-    }  
-}  
+import com.ssh.domain.Admin;
+
+public class AdminServiceImpl implements AdminService {
+
+	private AdminDao adminDao;
+
+	public void setAdminDao(AdminDao adminDao) {
+		this.adminDao = adminDao;
+	}
+
+	@Override
+	public void update(Admin admin) {
+		this.adminDao.update(admin);
+	}
+
+	@Override
+	public void regist(Admin admin) throws HibernateException {
+		this.adminDao.regist(admin);
+
+	}
+
+	@Override
+	public void login(Admin admin) throws HibernateException {
+		this.adminDao.login(admin);
+
+	}
+
+}

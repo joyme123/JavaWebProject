@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ssh.domain">  
+    <class name="CarModel" table="car_model">  
+        <id name="id" column="id">  
+            <generator class="native"></generator>  
+        </id>  
+        <property name="modelName" column="model_name"></property>  
+        <property name="length" column="length"></property>  
+        <property name="width" column="width"></property>  
+        <property name="height" column="height"></property>  
+        <property name="wheelBase" column="wheel_base"></property>  
+        <property name="frontWheelTrack" column="front_wheel_track"></property>  
+        <property name="rearWheelTrack" column="rear_wheel_track"></property>  
+        <property name="minimumDistance" column="minimum_distance"></property>  
+        <property name="dragCoefficient" column="drag_coefficient"></property>  
+        <property name="minimumTurningDiameter" column="minimum_turning_diameter"></property>  
+        <property name="weight" column="weight"></property>  
+        <property name="allowMaxWeight" column="allow_max_weight"></property>  
+        <property name="doorCount" column="door_count"></property>  
+        <property name="seatCount" column="seat_count"></property>  
+        <property name="trunkVolume" column="trunk_volume"></property>  
+        <property name="fuelTankVolume" column="fuel_tank_volume"></property>  
+        <property name="color" column="color"></property>   
+    </class>  
+</hibernate-mapping>  
