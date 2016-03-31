@@ -36,7 +36,7 @@
         <property name="mappingResources">  
             <list>  
                 <value>com/ssh/domain/admin.xml</value>  
-                <value>com/ssh/domain/test.xml</value>
+                <value>com/ssh/domain/user.xml</value>
                 <value>com/ssh/domain/carmodel.xml</value>
             </list>  
         </property>  
@@ -60,7 +60,7 @@
 			<ref bean="adminDao"></ref>
 		</property>
 	</bean>
-	<bean id="adminAction" class="com.ssh.action.AdminAction" scope="prototype">
+	<bean id="adminAction" class="com.ssh.action.show.AdminAction" scope="prototype">
 		<property name="adminService">
 			<ref bean="adminService"></ref>
 		</property>
@@ -76,7 +76,7 @@
 			<ref bean="carModelDao"></ref>
 		</property>
 	</bean>
-	<bean id="addCarModelAction" class="com.ssh.action.addCarModelAction" scope="prototype">
+	<bean id="addCarModelAction" class="com.ssh.action.admin.addCarModelAction" scope="prototype">
 		<property name="carModelService">
 			<ref bean="carModelService"></ref>
 		</property>

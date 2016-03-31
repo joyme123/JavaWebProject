@@ -1,4 +1,4 @@
-package com.ssh.action;
+package com.ssh.action.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.domain.CarModel;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>  
+    <package name="show" extends="struts-default">  
+        <action name="dispatcherAction" class="com.ssh.action.show.DispatcherAction">
+       		<result name="index">/WEB-INF/content/admin/index.jsp</result>  
+            <result name="adminLogin">/WEB-INF/content/admin/login.jsp</result>
+            <result name="addCarModel">/WEB-INF/content/admin/addCarModel.jsp</result>
+            <result name="viewCarModel">/WEB-INF/content/admin/viewCarModel.jsp</result>
+            <result name="viewUser">/WEB-INF/content/admin/viewUser.jsp</result>
+            <result name="addUser">/WEB-INF/content/admin/addUser.jsp</result>
+        </action> 
+        <action name="">
+        	<result>/WEB-INF/content/index.jsp</result>
+        </action>
+        <action name="*">
+        	<result>/WEB-INF/content/{1}.jsp</result>
+        </action>
+    </package>  
+</struts>  

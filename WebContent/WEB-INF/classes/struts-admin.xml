@@ -4,16 +4,10 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>  
     <package name="admin" extends="struts-default">  
-        <action name="adminLogin" class="com.ssh.action.AdminAction" method="login">  
-            <result name="input">/WEB-INF/content/index.jsp</result>
-            <result name="success">/WEB-INF/content/success.jsp</result>
-            <result name="error">/WEB-INF/content/error.jsp</result>  
+        <action name="addCarModelAction" class="com.ssh.action.admin.addCarModelAction" method="execute">  
+            <result name="input">/WEB-INF/content/admin/addCarModel.jsp</result>
+            <result name="success">/WEB-INF/content/admin/addCarModelSuccess.jsp</result>
+            <result name="error">/WEB-INF/content/admin/error.jsp</result>  
         </action> 
-        <action name="">
-        	<result>/WEB-INF/content/index.jsp</result>
-        </action>
-        <action name="*">
-        	<result>/WEB-INF/content/{1}.jsp</result>
-        </action>
     </package>  
 </struts>  
