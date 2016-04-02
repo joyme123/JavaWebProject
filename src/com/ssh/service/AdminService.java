@@ -9,5 +9,5 @@ public interface AdminService {
 
 	public void regist(Admin admin) throws HibernateException;
 
-	public void login(Admin admin) throws HibernateException;
+	public Admin login(Admin admin) throws HibernateException;
 }

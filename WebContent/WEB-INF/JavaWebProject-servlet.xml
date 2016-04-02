@@ -38,6 +38,8 @@
                 <value>com/ssh/domain/admin.xml</value>  
                 <value>com/ssh/domain/user.xml</value>
                 <value>com/ssh/domain/carmodel.xml</value>
+                <value>com/ssh/domain/orderrecord.xml</value>
+                <value>com/ssh/domain/customerservice.xml</value>
             </list>  
         </property>  
         <!-- 配置hibernate属性的设置 -->  
@@ -60,7 +62,7 @@
 			<ref bean="adminDao"></ref>
 		</property>
 	</bean>
-	<bean id="adminAction" class="com.ssh.action.show.AdminAction" scope="prototype">
+	<bean id="loginAdminAction" class="com.ssh.action.admin.LoginAdminAction" scope="prototype">
 		<property name="adminService">
 			<ref bean="adminService"></ref>
 		</property>
@@ -76,10 +78,86 @@
 			<ref bean="carModelDao"></ref>
 		</property>
 	</bean>
-	<bean id="addCarModelAction" class="com.ssh.action.admin.addCarModelAction" scope="prototype">
+	<bean id="addCarModelAction" class="com.ssh.action.admin.AddCarModelAction" scope="prototype">
+		<property name="carModelService">
+			<ref bean="carModelService"></ref>
+		</property>
+	</bean>
+	<bean id="viewCarModelAction" class="com.ssh.action.admin.ViewCarModelAction" scope="prototype">
+		<property name="carModelService">
+			<ref bean="carModelService"></ref>
+		</property>
+	</bean>
+	<bean id="editCarModelAction" class="com.ssh.action.admin.EditCarModelAction" scope="prototype">
+		<property name="carModelService">
+			<ref bean="carModelService"></ref>
+		</property>
+	</bean>
+	<bean id="deleteCarModelAction" class="com.ssh.action.admin.DeleteCarModelAction" scope="prototype">
 		<property name="carModelService">
 			<ref bean="carModelService"></ref>
 		</property>
 	</bean>
 
+	<bean id="userDao" class="com.ssh.dao.UserDaoImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="userService" class="com.ssh.service.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao"></ref>
+		</property>
+	</bean>
+	<bean id="addUserAction" class="com.ssh.action.admin.AddUserAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService"></ref>
+		</property>
+	</bean>
+	<bean id="viewUserAction" class="com.ssh.action.admin.ViewUserAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService"></ref>
+		</property>
+	</bean>
+	<bean id="deleteUserAction" class="com.ssh.action.admin.DeleteUserAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService"></ref>
+		</property>
+	</bean>
+	<bean id="editUserAction" class="com.ssh.action.admin.EditUserAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService"></ref>
+		</property>
+	</bean>
+	
+	<bean id="orderRecordDao" class="com.ssh.dao.OrderRecordDaoImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"></ref>
+		</property>
+	</bean>
+	<bean id="orderRecordService" class="com.ssh.service.OrderRecordServiceImpl">
+		<property name="orderRecordDao">
+			<ref bean="orderRecordDao"></ref>
+		</property>
+	</bean>
+	<bean id="addOrderRecordAction" class="com.ssh.action.admin.AddOrderRecordAction" scope="prototype">
+		<property name="orderRecordService">
+			<ref bean="orderRecordService"></ref>
+		</property>
+	</bean>
+	<bean id="viewOrderRecordAction" class="com.ssh.action.admin.ViewOrderRecordAction" scope="prototype">
+		<property name="orderRecordService">
+			<ref bean="orderRecordService"></ref>
+		</property>
+	</bean>
+	<bean id="deleteOrderRecordAction" class="com.ssh.action.admin.DeleteOrderRecordAction" scope="prototype">
+		<property name="orderRecordService">
+			<ref bean="orderRecordService"></ref>
+		</property>
+	</bean>
+	<bean id="editOrderRecordAction" class="com.ssh.action.admin.EditOrderRecordAction" scope="prototype">
+		<property name="orderRecordService">
+			<ref bean="orderRecordService"></ref>
+		</property>
+	</bean>
 </beans>

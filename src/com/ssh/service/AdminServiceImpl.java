@@ -25,8 +25,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void login(Admin admin) throws HibernateException {
-		this.adminDao.login(admin);
+	public Admin login(Admin admin) throws HibernateException {
+		return this.adminDao.login(admin);
 
 	}
 

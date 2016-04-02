@@ -31,7 +31,8 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public Admin login(Admin admin) {
 		Session session = sessionFactory.openSession();
-		String hql = "from User user where admin.username = '" + admin.getName() + "'";
+		String hql = "from Admin admin where admin.name = '" + admin.getName() + "' and admin.pass='" + admin.getPass()
+				+ "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();

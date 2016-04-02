@@ -7,9 +7,12 @@
 <title>管理员面板</title>
 </head>
 <body>
-	<a href="dispatcherAction!goViewCarModel">查看车型</a>
+	<a href="viewCarModelAction">查看车型</a>
     <a href="dispatcherAction!goAddCarModel">添加车型</a>
-    <a href="dispatcherAction!goViewUser">查看客户</a>
+    <a href="viewUserAction">查看客户</a>
     <a href="dispatcherAction!goAddUser">添加客户</a>
+    <a href="viewOrderRecordAction">查看订单</a>
+    <a href="dispatcherAction!goAddOrderRecord">添加订单</a>
+    <a href="logoutAdminAction">退出登录</a>
 </body>
 </html>

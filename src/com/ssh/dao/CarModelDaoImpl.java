@@ -1,5 +1,6 @@
 package com.ssh.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -32,7 +33,7 @@ public class CarModelDaoImpl implements CarModelDao {
 	@Override
 	public CarModel getCarModelByName(String name) {
 		Session session = sessionFactory.openSession();
-		String hql = "from User user where car_model.model_name = '" + name + "'";
+		String hql = "from CarModel car_model where car_model.model_name = '" + name + "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();
@@ -47,7 +48,7 @@ public class CarModelDaoImpl implements CarModelDao {
 	@Override
 	public CarModel getCarModelById(int id) {
 		Session session = sessionFactory.openSession();
-		String hql = "from User user where car_model.id = '" + id + "'";
+		String hql = "from CarModel car_model where car_model.id = '" + id + "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();
@@ -69,10 +70,24 @@ public class CarModelDaoImpl implements CarModelDao {
 	@Override
 	public void delete(int id) {
 		Session session = sessionFactory.openSession();
-		String hql = "delete from car_model journal where id = " + id;
+		String hql = "delete from CarModel car_model where car_model.id = " + id;
 		Query query = session.createQuery(hql);
 		query.executeUpdate();
 		session.close();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<CarModel> getCarModelList() {
+		Session session = sessionFactory.openSession();
+		String hql = "from CarModel";
+		Query query = session.createQuery(hql);
+		ArrayList<CarModel> carModelList = (ArrayList<CarModel>) query.list();
+		if (carModelList.isEmpty()) {
+			return null;
+		} else {
+			return carModelList;
+		}
 	}
 
 }

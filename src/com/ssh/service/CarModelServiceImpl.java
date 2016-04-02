@@ -1,5 +1,7 @@
 package com.ssh.service;
 
+import java.util.ArrayList;
+
 import org.hibernate.HibernateException;
 
 import com.ssh.dao.CarModelDao;
@@ -36,6 +38,12 @@ public class CarModelServiceImpl implements CarModelService {
 	@Override
 	public void delete(int id) throws HibernateException {
 		this.carModelDao.delete(id);
+	}
+
+	@Override
+	public ArrayList<CarModel> getCarModelList() {
+		return this.carModelDao.getCarModelList();
+
 	}
 
 }

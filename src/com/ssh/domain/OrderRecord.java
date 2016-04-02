@@ -2,7 +2,7 @@ package com.ssh.domain;
 
 import java.io.Serializable;
 
-public class Order implements Serializable {
+public class OrderRecord implements Serializable {
 	private static final long serialVersionUID = 7938524977476803780L;
 	private int id;
 	private int carModelId;
@@ -11,11 +11,11 @@ public class Order implements Serializable {
 	private double orderMoney;
 	private double discount;
 
-	public Order() {
+	public OrderRecord() {
 
 	}
 
-	public Order(int id, int carModelId, int userId, int time, double orderMoney, double discount) {
+	public OrderRecord(int id, int carModelId, int userId, int time, double orderMoney, double discount) {
 		super();
 		this.id = id;
 		this.carModelId = carModelId;

@@ -1,4 +1,4 @@
-package com.ssh.action.show;
+package com.ssh.action.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,5 +26,9 @@ public class DispatcherAction extends ActionSupport {
 
 	public String goViewUser() {
 		return "viewUser";
+	}
+
+	public String goAddOrderRecord() {
+		return "addOrderRecord";
 	}
 }

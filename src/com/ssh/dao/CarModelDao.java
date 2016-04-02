@@ -1,8 +1,13 @@
 package com.ssh.dao;
 
+import java.util.ArrayList;
+
 import com.ssh.domain.CarModel;
 
 public interface CarModelDao {
+
+	public ArrayList<CarModel> getCarModelList();
+
 	public void add(CarModel carModel);
 
 	public CarModel getCarModelByName(String name);

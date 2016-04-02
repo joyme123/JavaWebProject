@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>登录</title>
 </head>
 <body>
-
+	<form action="loginAdminAction" method="POST">
+		登录名:<input type="text" name="admin.name"><br>
+		密码：<input type="password" name="admin.pass"><br>
+		<input type="submit" value="登录"><input type="reset" value="重置">
+	</form>
 </body>
 </html>
