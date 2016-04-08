@@ -15,7 +15,7 @@
         <default-interceptor-ref name="defualtSecurityStackWithAuthentication" />
         <!-- 全局Result，让验证不通过的都跳到该result -->
         <global-results>
-              <result name="tologin">/WEB-INF/content/login.jsp</result>
+              <result name="toindex">/WEB-INF/content/index.jsp</result>
         </global-results>
         <action name="dispatcherAction" class="com.ssh.action.admin.DispatcherAction">
        		<result name="index">/WEB-INF/content/admin/index.jsp</result>  

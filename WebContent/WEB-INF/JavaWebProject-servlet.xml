@@ -40,6 +40,7 @@
                 <value>com/ssh/domain/carmodel.xml</value>
                 <value>com/ssh/domain/orderrecord.xml</value>
                 <value>com/ssh/domain/customerservice.xml</value>
+                <value>com/ssh/domain/carimage.xml</value>
             </list>  
         </property>  
         <!-- 配置hibernate属性的设置 -->  
