@@ -25,5 +25,6 @@
         <property name="fuelTankVolume" column="fuel_tank_volume"></property>  
         <property name="color" column="color"></property>   
         <property name="stock" column="stock"></property> 
+        <property name="price" column="price"></property>
     </class>  
 </hibernate-mapping>  

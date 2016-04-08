@@ -23,6 +23,7 @@ public class CarModel implements Serializable {
 	private int fuelTankVolume;
 	private String color;
 	private int stock;
+	private int price;
 
 	public int getStock() {
 		return stock;
@@ -39,7 +40,7 @@ public class CarModel implements Serializable {
 	public CarModel(int id, String modelName, int length, int width, int height, int wheelBase, int frontWheelTrack,
 			int rearWheelTrack, int minimumDistance, int dragCoefficient, int minimumTurningDiameter, int weight,
 			int allowMaxWeight, int doorCount, int seatCount, int trunkVolume, int fuelTankVolume, String color,
-			int stock) {
+			int stock, int price) {
 		super();
 		this.id = id;
 		this.modelName = modelName;
@@ -60,6 +61,15 @@ public class CarModel implements Serializable {
 		this.fuelTankVolume = fuelTankVolume;
 		this.color = color;
 		this.stock = stock;
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public int getId() {

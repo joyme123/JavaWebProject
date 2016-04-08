@@ -35,6 +35,7 @@
 		      '油箱容积:<input type="text" name="carModel.fuelTankVolume"/><br>'+
 		      '颜色:<input type="text" name="carModel.color"/><br>'+
 		      '库存:<input type="text" name="carModel.stock"/><br>'+
+		      '定价:<input type="text" name="carModel.price"/><br>'+
 		      '<input type="submit" value="修改"/><input type="reset" value="重置"/>'+
 		      '</form>'
 			});

@@ -26,6 +26,7 @@
         	 <s:textfield label="油箱容积" name="carModel.fuelTankVolume"/>
         	 <s:textfield label="颜色" name="carModel.color"/>
         	 <s:textfield label="库存" name="carModel.stock"/>
+        	 <s:textfield label="定价" name="carModel.price"/>
             <s:submit value="添加"/>  
             <s:reset value="重置"/>  
         </s:form>  
