@@ -1,16 +1,24 @@
 package com.ssh.action.admin;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ssh.domain.OrderRecord;
+import com.ssh.dao.QueryResult;
 import com.ssh.service.OrderRecordService;
 
 public class ViewOrderRecordAction extends ActionSupport {
 	private static final long serialVersionUID = -5878288434516961465L;
 	private OrderRecordService orderRecordService;
+	private int page;
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
 
 	public OrderRecordService getOrderRecordService() {
 		return orderRecordService;
@@ -24,8 +32,9 @@ public class ViewOrderRecordAction extends ActionSupport {
 	@Override
 	public String execute() {
 		Map request = (Map) ActionContext.getContext().get("request");
-		ArrayList<OrderRecord> orderRecordList = this.orderRecordService.getOrderRecordList();
-		request.put("orderRecordList", orderRecordList);
+		QueryResult result = this.orderRecordService.getOrderRecordList(page);
+		request.put("orderRecordList", result.getResult());
+		request.put("pageCount", result.getPageCount());
 		return SUCCESS;
 	}
 }

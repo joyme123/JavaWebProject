@@ -1,11 +1,9 @@
 package com.ssh.dao;
 
-import java.util.ArrayList;
-
 import com.ssh.domain.User;
 
 public interface UserDao {
-	public ArrayList<User> getUserList();
+	public QueryResult getUserList(int page);
 
 	public User getUserById(int id);
 

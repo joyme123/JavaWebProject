@@ -1,7 +1,6 @@
 package com.ssh.service;
 
-import java.util.ArrayList;
-
+import com.ssh.dao.QueryResult;
 import com.ssh.dao.UserDao;
 import com.ssh.domain.User;
 
@@ -17,8 +16,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ArrayList<User> getUserList() {
-		return this.userDao.getUserList();
+	public QueryResult getUserList(int page) {
+		return this.userDao.getUserList(page);
 	}
 
 	@Override

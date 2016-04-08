@@ -1,11 +1,10 @@
 package com.ssh.service;
 
-import java.util.ArrayList;
-
+import com.ssh.dao.QueryResult;
 import com.ssh.domain.User;
 
 public interface UserService {
-	public ArrayList<User> getUserList();
+	public QueryResult getUserList(int page);
 
 	public void addUser(User user);
 

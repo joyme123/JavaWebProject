@@ -51,6 +51,7 @@
 		<s:a href="deleteCarModelAction?id=%{#carModelList.id}">删除</s:a>
 		<br>
 	</s:iterator>
+	总页数:<s:property value="#request.pageCount"/>
 	<a href="dispatcherAction!goIndex">返回管理员面板</a>
 </body>
 </html>

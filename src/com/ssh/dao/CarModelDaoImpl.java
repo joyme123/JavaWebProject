@@ -78,15 +78,27 @@ public class CarModelDaoImpl implements CarModelDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<CarModel> getCarModelList() {
+	public QueryResult getCarModelList(int page) {
 		Session session = sessionFactory.openSession();
-		String hql = "from CarModel";
+		QueryResult queryResult = new QueryResult();
+		int pageSize = queryResult.getPageSize();
+		int left = ((page - 1) * pageSize) > 0 ? (page - 1) * pageSize : 0;
+		int right = page * pageSize > 0 ? page * pageSize : 0;
+		String hql = "from CarModel car_model order by car_model.id";
 		Query query = session.createQuery(hql);
-		ArrayList<CarModel> carModelList = (ArrayList<CarModel>) query.list();
+		query.setFirstResult(left);
+		query.setMaxResults(right);
+		ArrayList<Object> carModelList = (ArrayList<Object>) query.list();
+		String hql2 = "select count(*) from CarModel";
+		Query query2 = session.createQuery(hql2);
+		int count = ((Long) query2.uniqueResult()).intValue();
+		queryResult.setResult(carModelList);
+		queryResult.setPageCount(count);
+		session.close();
 		if (carModelList.isEmpty()) {
 			return null;
 		} else {
-			return carModelList;
+			return queryResult;
 		}
 	}
 

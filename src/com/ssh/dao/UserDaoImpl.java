@@ -22,16 +22,27 @@ public class UserDaoImpl implements UserDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<User> getUserList() {
+	public QueryResult getUserList(int page) {
 		Session session = sessionFactory.openSession();
+		QueryResult queryResult = new QueryResult();
+		int pageSize = queryResult.getPageSize();
+		int left = ((page - 1) * pageSize) > 0 ? (page - 1) * pageSize : 0;
+		int right = page * pageSize > 0 ? page * pageSize : 0;
 		String hql = "from User";
 		Query query = session.createQuery(hql);
-		ArrayList<User> list = (ArrayList<User>) query.list();
+		query.setFirstResult(left);
+		query.setMaxResults(right);
+		ArrayList<Object> list = (ArrayList<Object>) query.list();
+		String hql2 = "select count(*) from User";
+		Query query2 = session.createQuery(hql2);
+		int count = ((Long) query2.uniqueResult()).intValue();
+		queryResult.setResult(list);
+		queryResult.setPageCount(count);
 		session.close();
 		if (list.isEmpty()) {
 			return null;
 		} else {
-			return list;
+			return queryResult;
 		}
 	}
 

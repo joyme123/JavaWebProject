@@ -1,10 +1,9 @@
 package com.ssh.service;
 
-import java.util.ArrayList;
-
 import org.hibernate.HibernateException;
 
 import com.ssh.dao.CarModelDao;
+import com.ssh.dao.QueryResult;
 import com.ssh.domain.CarModel;
 
 public class CarModelServiceImpl implements CarModelService {
@@ -41,8 +40,8 @@ public class CarModelServiceImpl implements CarModelService {
 	}
 
 	@Override
-	public ArrayList<CarModel> getCarModelList() {
-		return this.carModelDao.getCarModelList();
+	public QueryResult getCarModelList(int page) {
+		return this.carModelDao.getCarModelList(page);
 
 	}
 

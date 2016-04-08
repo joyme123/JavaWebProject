@@ -1,11 +1,9 @@
 package com.ssh.dao;
 
-import java.util.ArrayList;
-
 import com.ssh.domain.OrderRecord;
 
 public interface OrderRecordDao {
-	public ArrayList<OrderRecord> getOrderRecordList();
+	public QueryResult getOrderRecordList(int page);
 
 	public OrderRecord getOrderRecordById(int id);
 

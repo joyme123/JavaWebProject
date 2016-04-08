@@ -1,11 +1,10 @@
 package com.ssh.service;
 
-import java.util.ArrayList;
-
+import com.ssh.dao.QueryResult;
 import com.ssh.domain.OrderRecord;
 
 public interface OrderRecordService {
-	public ArrayList<OrderRecord> getOrderRecordList();
+	public QueryResult getOrderRecordList(int page);
 
 	public void addOrderRecord(OrderRecord orderRecord);
 

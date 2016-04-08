@@ -22,16 +22,27 @@ public class OrderRecordDaoImpl implements OrderRecordDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<OrderRecord> getOrderRecordList() {
+	public QueryResult getOrderRecordList(int page) {
 		Session session = sessionFactory.openSession();
+		QueryResult queryResult = new QueryResult();
+		int pageSize = queryResult.getPageSize();
+		int left = ((page - 1) * pageSize) > 0 ? (page - 1) * pageSize : 0;
+		int right = page * pageSize > 0 ? page * pageSize : 0;
 		String hql = "from OrderRecord";
 		Query query = session.createQuery(hql);
-		ArrayList<OrderRecord> list = (ArrayList<OrderRecord>) query.list();
+		query.setFirstResult(left);
+		query.setMaxResults(right);
+		ArrayList<Object> list = (ArrayList<Object>) query.list();
+		String hql2 = "select count(*) from OrderRecord";
+		Query query2 = session.createQuery(hql2);
+		int count = ((Long) query2.uniqueResult()).intValue();
+		queryResult.setResult(list);
+		queryResult.setPageCount(count);
 		session.close();
 		if (list.isEmpty()) {
 			return null;
 		} else {
-			return list;
+			return queryResult;
 		}
 	}
 

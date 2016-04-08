@@ -1,12 +1,10 @@
 package com.ssh.dao;
 
-import java.util.ArrayList;
-
 import com.ssh.domain.CarModel;
 
 public interface CarModelDao {
 
-	public ArrayList<CarModel> getCarModelList();
+	public QueryResult getCarModelList(int page);
 
 	public void add(CarModel carModel);
 

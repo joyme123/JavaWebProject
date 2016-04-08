@@ -1,8 +1,7 @@
 package com.ssh.service;
 
-import java.util.ArrayList;
-
 import com.ssh.dao.OrderRecordDao;
+import com.ssh.dao.QueryResult;
 import com.ssh.domain.OrderRecord;
 
 public class OrderRecordServiceImpl implements OrderRecordService {
@@ -17,8 +16,8 @@ public class OrderRecordServiceImpl implements OrderRecordService {
 	}
 
 	@Override
-	public ArrayList<OrderRecord> getOrderRecordList() {
-		return this.orderRecordDao.getOrderRecordList();
+	public QueryResult getOrderRecordList(int page) {
+		return this.orderRecordDao.getOrderRecordList(page);
 	}
 
 	@Override
