@@ -25,7 +25,7 @@
 				<div class="col-lg-6">
 					<h1 style="font-size: 58px;">你前所未见的</h1>
 					<h1>汽车管理系统完美解决方案</h1>
-					<a class="indexbtn btn btn-warning btn-lg" href="http://av.com">福利</a>
+					<a class="indexbtn btn btn-warning btn-lg" href="viewCarModelAction">进入后台管理</a>
 				</div>
 				<div class="col-lg-6">
 					<img class="img-responsive" src="assets/img/car.png" alt="">
