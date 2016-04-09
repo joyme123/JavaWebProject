@@ -1,0 +1,53 @@
+.footer {
+    position: fixed;
+    width: 75%;
+    text-align: center;
+    bottom: 0px;
+    background-color: #fff;
+}
+
+.footer p {
+    margin: 0;
+}
+
+#newform {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #7e7975;
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-weight: 300;
+    background-color: #fffaf6;
+    margin: 5px;
+    border: 5px solid gray;
+    border-radius: 5px;
+}
+
+#newform div {
+    margin: 5px;
+}
+
+#newform h1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #bdb5aa;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EBE6E2;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+#newform .clearfix {
+    clear: both;
+}
+
+#newform input {
+    width: 65%;
+}
+
+#newform .control-group input {
+    float: right;
+}
+
+#newform .btn {
+    width: 40%;
+}
