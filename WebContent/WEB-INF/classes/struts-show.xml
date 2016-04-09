@@ -6,7 +6,7 @@
     <package name="show" extends="struts-default">  
         <action name="loginAdminAction" class="com.ssh.action.show.LoginAdminAction" method="execute">  
             <result name="input">/WEB-INF/content/login.jsp</result>
-            <result name="success">/WEB-INF/content/admin/index.jsp</result>
+            <result name="success">/WEB-INF/content/index.jsp</result>
             <result name="error">/WEB-INF/content/login.jsp</result>  
         </action> 
         <action name="">
