@@ -1,5 +1,6 @@
 package com.ssh.action.admin;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.io.IOException;
 
@@ -8,12 +9,15 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+=======
+>>>>>>> origin/master
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.domain.CarImage;
 import com.ssh.service.CarImageService;
 
 public class AddCarImageAction extends ActionSupport {
 	private static final long serialVersionUID = -8825572473566455701L;
+<<<<<<< HEAD
 
 	private CarImageService carImageService;
 	private File[] file;
@@ -28,6 +32,10 @@ public class AddCarImageAction extends ActionSupport {
 	public void setCarModelId(int carModelId) {
 		this.carModelId = carModelId;
 	}
+=======
+	private CarImage carImage;
+	private CarImageService carImageService;
+>>>>>>> origin/master
 
 	public CarImageService getCarImageService() {
 		return carImageService;
@@ -37,6 +45,7 @@ public class AddCarImageAction extends ActionSupport {
 		this.carImageService = carImageService;
 	}
 
+<<<<<<< HEAD
 	public File[] getFile() {
 		return file;
 	}
@@ -81,4 +90,20 @@ public class AddCarImageAction extends ActionSupport {
 		}
 		return ERROR;
 	}
+=======
+	public CarImage getCarImage() {
+		return carImage;
+	}
+
+	public void setCarImage(CarImage carImage) {
+		this.carImage = carImage;
+	}
+
+	@Override
+	public String execute() {
+		this.carImageService.add(carImage);
+		return SUCCESS;
+	}
+
+>>>>>>> origin/master
 }
