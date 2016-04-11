@@ -55,12 +55,11 @@
                                             <div>
                                                 <legend class="">添加新车</legend>
                                             </div>
-                                            <div class="control-group">
-                                                <!-- Text input-->
+                                            <div>
                                                 <label class="control-label" for="input01">车型名</label>
                                                 <input type="text" placeholder="" class="input-xlarge">
                                             </div>
-                                            <div class="control-group">
+                                            <div>
                                                 <label class="control-label">门数</label>
                                                 <select class="input-xlarge">
                                                     <option>4门</option>
@@ -74,23 +73,19 @@
                                                     <option>9人</option>
                                                 </select>
                                             </div>
-                                            <div class="control-group">
-                                                <!-- Text input-->
+                                            <div>
                                                 <label class="control-label" for="input01">后备箱容积</label>
                                                 <input type="text" placeholder="" class="input-xlarge">
                                             </div>
-                                            <div class="control-group">
-                                                <!-- Text input-->
+                                            <div>
                                                 <label class="control-label" for="input01">发动机转速</label>
                                                 <input type="text" placeholder="" class="input-xlarge">
                                             </div>
-                                            <div class="control-group">
-                                                <!-- Text input-->
-                                                <label class="control-label" for="input01">颜色</label>
+                                            <div>
+                                                <label class="control-label" for="input01">颜色 </label>
                                                 <input type="text" placeholder="" class="input-xlarge">
                                             </div>
-                                            <div class="control-group">
-                                                <!-- Text input-->
+                                            <div>
                                                 <label class="control-label" for="input01">库存</label>
                                                 <input type="text" placeholder="" class="input-xlarge">
                                             </div>
@@ -113,7 +108,7 @@
                                         <td>发动机转速</td>
                                         <td>颜色</td>
                                         <td>库存</td>
-                                        <td>修改</td>
+                                        <td>操作</td>
                                     </tr>
                                     <s:iterator value="#request.carModelList" id="carModelList" status="cars">
                                         <tr>
@@ -141,25 +136,25 @@
                                                                 <!-- Text input-->
                                                                 <div class="detailitem">
                                                                     <label class="control-label" for="input01">车型名</label>
-                                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                                    <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #carModelList.modelName " />">
                                                                 </div>
 
                                                                 <div class="detailitem">
                                                                     <label class="control-label" for="input01">颜色</label>
-                                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                                    <input type="text" placeholder="" class="input-xlarge" style="margin-left:3em;" value="<s:property value=" #carModelList.modelName " />">
                                                                 </div>
                                                             </div>
                                                             <div class="clearfix">
                                                                 <div class="detailitem">
-                                                                    <label class="control-label">门数 &nbsp;</label>
-                                                                    <select class="input-xlarge">
+                                                                    <label class="control-label">门数</label>
+                                                                    <select class="input-xlarge" style="margin-left:3em;">
                                                                         <option>4门</option>
                                                                         <option>2门</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="detailitem">
                                                                     <label class="control-label">座位数</label>
-                                                                    <select class="input-xlarge">
+                                                                    <select class="input-xlarge" style="margin-left:2em;">
                                                                         <option>2人</option>
                                                                         <option>5人</option>
                                                                         <option>7人</option>
@@ -167,18 +162,24 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div>
-                                                                <label class="control-label" for="input01">后备箱容积</label>
-                                                                <input type="text" placeholder="" class="input-xlarge">
-                                                                <label class="control-label" for="input01">发动机转速</label>
-                                                                <input type="text" placeholder="" class="input-xlarge">
-                                                                <label class="control-label" for="input01">库存</label>
-                                                                <input type="text" placeholder="" class="input-xlarge">
+                                                            <div class="clearfix">
+                                                                <div class="detailitem">
+                                                                    <label class="control-label" for="input01">后备箱容积</label>
+                                                                    <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #carModelList.modelName " />">
+                                                                </div>
+                                                                <div class="detailitem">
+                                                                    <label class="control-label" for="input01">发动机转速</label>
+                                                                    <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #carModelList.modelName " />">
+                                                                </div>
                                                             </div>
-                                                            <div class="controls">
-                                                                <div id="submit" class="btn btn-success">提交</div>
-                                                                <div id="cancel" class="btn btn-danger">取消</div>
+                                                            <div class="clearfix">
+                                                                <div class="detailitem">
+                                                                    <label class="control-label" for="input01">库存</label>
+                                                                    <input type="text" placeholder="" class="input-xlarge" style="margin-left:3em;" value="<s:property value=" #carModelList.modelName " />">
+                                                                </div>
+                                                                <div id="submit<s:property value=" #cars.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
                                                             </div>
+                                                            <div id="cancel<s:property value=" #cars.getIndex() "/>" class="btn btn-danger right detailbtn">取消</div>
                                                         </fieldset>
                                                     </form>
                                                 </div>
