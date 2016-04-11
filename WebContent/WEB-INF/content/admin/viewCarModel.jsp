@@ -16,7 +16,7 @@
             <script src="assets/js/bootstrap-table.js"></script>
             <script src="assets/js/createbtn.js"></script>
             <script src="assets/js/layer/layer.js"></script>
-            <link href="assets/css/main.css?22" rel="stylesheet">
+            <link href="assets/css/main.css" rel="stylesheet">
             <link href="assets/css/new.css" rel="stylesheet">
             <script type="text/javascript">
                 function edit(value) {
