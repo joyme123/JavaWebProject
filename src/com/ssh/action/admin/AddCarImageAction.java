@@ -2,6 +2,7 @@ package com.ssh.action.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,9 +16,26 @@ import com.ssh.service.CarImageService;
 public class AddCarImageAction extends ActionSupport {
 	private static final long serialVersionUID = -8825572473566455701L;
 	private CarImageService carImageService;
-	private File[] file;
-	private String[] fileName;
-	private String[] fileType;
+	private List<File> uploadFile;
+	private List<String> uploadFileFileName;
+	private List<String> uploadFileContentType;
+
+	public List<String> getUploadFileFileName() {
+		return uploadFileFileName;
+	}
+
+	public void setUploadFileFileName(List<String> uploadFileFileName) {
+		this.uploadFileFileName = uploadFileFileName;
+	}
+
+	public List<String> getUploadFileContentType() {
+		return uploadFileContentType;
+	}
+
+	public void setUploadFileContentType(List<String> uploadFileContentType) {
+		this.uploadFileContentType = uploadFileContentType;
+	}
+
 	private int carModelId;
 
 	public int getCarModelId() {
@@ -36,45 +54,32 @@ public class AddCarImageAction extends ActionSupport {
 		this.carImageService = carImageService;
 	}
 
-	public File[] getFile() {
-		return file;
+	public List<File> getUploadFile() {
+		return this.uploadFile;
 	}
 
-	public void setFile(File[] file) {
-		this.file = file;
-	}
-
-	public String[] getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String[] fileName) {
-		this.fileName = fileName;
-	}
-
-	public String[] getFileType() {
-		return fileType;
-	}
-
-	public void setFileType(String[] fileType) {
-		this.fileType = fileType;
+	public void setUploadFile(List<File> uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	public String upload() throws IOException {
-		// String realpath =
-		// ServletActionContext.getServletContext().getRealPath("/image");
-		String realpath = "E:\\";
-		if (file != null) {
+		String realpath = ServletActionContext.getServletContext().getRealPath("/assets/upload");
+		String url = "";
+		if (uploadFile != null) {
 			File savepath = new File(realpath);
 			if (!savepath.exists())
 				savepath.mkdirs();
-			for (int i = 0; i < file.length; i++) {
-				File savefile = new File(realpath, fileName[i]);
-				FileUtils.copyFile(file[i], savefile);
+			for (int i = 0; i < uploadFile.size(); i++) {
+				File savefile = new File(realpath, uploadFileFileName.get(i));
+				if (url.equals(""))
+					url = url + realpath + "/" + uploadFileFileName.get(i);
+				else
+					url = url + "|" + realpath + "/" + uploadFileFileName.get(i);
+				FileUtils.copyFile(uploadFile.get(i), savefile);
 			}
 			HttpSession session = ServletActionContext.getRequest().getSession();
 			session.setAttribute("message", "上传成功！");
-			CarImage carImage = new CarImage(this.carModelId, realpath);
+			CarImage carImage = new CarImage(this.carModelId, url);
 			this.carImageService.add(carImage);
 			return SUCCESS;
 		}

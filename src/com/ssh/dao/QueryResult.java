@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //封装了分页查询的返回结果
 public class QueryResult {
 	private ArrayList<Object> result;
-	private int pageSize = 15;
+	private int pageSize = 12;
 	private int pageCount;
 
 	public ArrayList<Object> getResult() {
