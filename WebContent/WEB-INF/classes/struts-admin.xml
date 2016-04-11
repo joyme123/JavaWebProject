@@ -90,15 +90,6 @@
         
         
        	<action name="addCarImageAction" class="com.ssh.action.admin.AddCarImageAction" method="upload"> 
-       		<!-- 配置fileUpload的拦截器 -->  
-       		<interceptor-ref name="fileUpload">  
-	          	<!-- 配置允许上传的文件类型 -->  
-	           	<param name="allowedTypes">image/bmp,image/gif,image/jpg,image/png,image/jpeg</param>      
-	           	<!--配置允许上传文件的扩展名,如果有多个用","隔开 -->      
-	           	<param name="allowedExtensions">jpg,png,jpeg</param>    
-	           	<!-- 配置允许上传的文件大小,最大为20k -->  
-	           	<param name="maximumSize">20971520</param>  
-       		</interceptor-ref>   
         	<result name="input">/WEB-INF/content/admin/addCarImage.jsp</result>
         	<result name="success"  type="chain">viewCarModelAction</result>
         	<result name="error">/WEB-INF/content/admin/error.jsp</result>
