@@ -31,4 +31,8 @@ public class DispatcherAction extends ActionSupport {
 	public String goAddOrderRecord() {
 		return "addOrderRecord";
 	}
+
+	public String goAddCarImage() {
+		return "addCarImage";
+	}
 }

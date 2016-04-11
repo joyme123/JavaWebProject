@@ -6,6 +6,16 @@ public class CarImage implements Serializable {
 	private static final long serialVersionUID = 8939778162583957656L;
 	private int id;
 	private int carModelId;
+	private String imgUrl;
+
+	public CarImage() {
+
+	}
+
+	public CarImage(int carModelId, String imgUrl) {
+		this.carModelId = carModelId;
+		this.imgUrl = imgUrl;
+	}
 
 	public int getCarModelId() {
 		return carModelId;
@@ -14,8 +24,6 @@ public class CarImage implements Serializable {
 	public void setCarModelId(int carModelId) {
 		this.carModelId = carModelId;
 	}
-
-	private String imgUrl;
 
 	public int getId() {
 		return id;
