@@ -208,6 +208,9 @@ hr {
     color: white;
     height: 30px;
     padding-top: 0px;
+    ;
+    padding-left: 0px;
+    padding-right: 3px;
     padding-bottom: 0px;
     font-size: 6px;
 }
@@ -234,4 +237,16 @@ hr {
 
 .centered {
     text-align: center;
+}
+
+.detail {
+    background-color: beige;
+    display:none;
+}
+
+.detail td {
+    padding: 0px !important;
+}
+.nopadding {
+    padding: 0px !important;
 }
