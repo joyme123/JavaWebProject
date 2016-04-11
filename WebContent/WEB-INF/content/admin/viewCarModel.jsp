@@ -151,7 +151,7 @@
                                                             </div>
                                                             <div class="clearfix">
                                                                 <div class="detailitem">
-                                                                    <label class="control-label">门数 </label>
+                                                                    <label class="control-label">门数 &nbsp;</label>
                                                                     <select class="input-xlarge">
                                                                         <option>4门</option>
                                                                         <option>2门</option>
