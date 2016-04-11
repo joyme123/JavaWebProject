@@ -15,12 +15,12 @@ public class AdminAuthenticationFilter extends AbstractInterceptor {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		System.out.println("管理员身份验证启动......");
 		if (session == null || session.getAttribute("name") == null || session.getAttribute("role") == null) {
-			return "toindex";
+			return "tologin";
 		}
 		if (!session.getAttribute("role").equals("admin")) {
 			session.removeAttribute("name");
 			session.removeAttribute("role");
-			return "toindex";
+			return "tologin";
 		}
 		return invocation.invoke();
 	}
