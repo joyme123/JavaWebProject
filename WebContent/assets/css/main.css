@@ -241,12 +241,29 @@ hr {
 
 .detail {
     background-color: beige;
-    display:none;
+    display: none;
+    padding: 20px;
+}
+
+.detail select {
+    width: 25%;
+}
+
+.detail label,
+.detail input,
+.detail select {
+    margin-right: 20px;
 }
 
 .detail td {
     padding: 0px !important;
 }
+
 .nopadding {
     padding: 0px !important;
+}
+
+.detailitem {
+    float: left;
+    width: 40%;
 }
