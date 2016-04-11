@@ -81,5 +81,4 @@ public class AddCarImageAction extends ActionSupport {
 		}
 		return ERROR;
 	}
-
 }
