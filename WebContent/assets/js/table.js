@@ -11,3 +11,12 @@ $(document).ready(function () {
         $('#newform').slideUp();
     });
 });
+function edit(value) {
+    var txt = "detail" + value;
+    $("#" + txt).slideToggle(500);
+}
+
+function cancel(value) {
+    var txt = "detail" + value;
+    $("#" + txt).slideUp(500);
+}

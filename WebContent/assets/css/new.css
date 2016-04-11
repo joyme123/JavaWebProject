@@ -41,6 +41,7 @@
 }
 
 #newform input {
+    float: right;
     width: 65%;
 }
 

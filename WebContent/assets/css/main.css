@@ -69,25 +69,6 @@ a {
 }
 
 
-/* Helpers */
-
-.mt {
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.form-control {
-    height: 42px;
-    font-size: 18px;
-    width: 280px;
-}
-
-i {
-    margin: 8px;
-    color: #3498db;
-}
-
-
 /* HeaderWrap */
 
 #headerwrap {
@@ -136,7 +117,6 @@ hr {
     right: 0px;
     height: 100%;
     padding-bottom: 100px;
-    max-width: 75%;
     overflow: auto;
     position: fixed;
 }
@@ -207,11 +187,7 @@ hr {
 .tablebtn {
     color: white;
     height: 30px;
-    padding-top: 0px;
-    ;
-    padding-left: 0px;
-    padding-right: 3px;
-    padding-bottom: 0px;
+    padding: 5px;
     font-size: 6px;
 }
 
@@ -227,6 +203,7 @@ hr {
 
 #create i {
     color: aliceblue;
+    margin: 7px;
 }
 
 .createbtn {
@@ -240,7 +217,7 @@ hr {
 }
 
 .detail {
-    background-color: beige;
+    background-color: #FAFAFA;
     display: none;
     padding: 20px;
 }
@@ -264,6 +241,19 @@ hr {
 }
 
 .detailitem {
-    float: left;
     width: 40%;
+    float: left;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.detailbtn {
+    margin: 3px;
+    width: 80px;
 }
