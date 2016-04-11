@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     margin-top: 50px;
     font-family: 'Microsoft YaHei', sans-serif;
@@ -242,266 +241,29 @@ hr {
 
 .detail {
     background-color: beige;
-    display:none;
-}
-
-.detail td {
-    padding: 0px !important;
-}
-.nopadding {
-    padding: 0px !important;
-}
-=======
-body {
-    margin-top: 50px;
-    font-family: 'Microsoft YaHei', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-}
-
-
-/* Titles */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Microsoft YaHei', sans-serif;
-    font-weight: 300;
-    color: #333;
-}
-
-h1 {
-    font-size: 40px;
-}
-
-h3 {
-    color: #95a5a6;
-    font-weight: 400;
-}
-
-h4 {
-    color: #95a5a6;
-    font-weight: 400;
-    font-size: 20px;
-}
-
-
-/* Paragraph & Typographic */
-
-p {
-    margin-bottom: 25px;
-    font-size: 16px;
-}
-
-
-/* Links */
-
-a {
-    color: #3498db;
-    word-wrap: break-word;
-}
-
-.navbar-default {
-    background-color: #3498db;
-    border-color: transparent;
-}
-
-.navbar-default .navbar-brand {
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-}
-
-.navbar-default .navbar-nav > li > a {
-    color: white;
-}
-
-
-/* Helpers */
-
-.mt {
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.form-control {
-    height: 42px;
-    font-size: 18px;
-    width: 280px;
-}
-
-i {
-    margin: 8px;
-    color: #3498db;
-}
-
-
-/* HeaderWrap */
-
-#headerwrap {
-    /* background: url(../img/bg01.jpg) no-repeat center top; */
-    background-color: #3498db;
-    padding-top: 150px;
-    background-attachment: relative;
-    background-position: center center;
-    min-height: 650px;
-    width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-#headerwrap h1 {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: white;
-    font-size: 45px;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-.indexbtn {
-    margin-top: 60px;
-}
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-.list {
-    padding-top: 3px;
-    float: left;
-    right: 0px;
-    height: 100%;
-    padding-bottom: 100px;
-    max-width: 75%;
-    overflow: auto;
-    position: fixed;
-}
-
-
-/*Nav-List*/
-
-.navlist {
-    padding-top: 30px;
-    background-color: #115D8E;
-    height: 100%;
-    left: 0px;
-    position: fixed;
-    float: left;
-}
-
-
-/*菜单*/
-
-.menu li a {
-    background-color: #efefef;
-    height: 50px;
-    line-height: 31px;
-    border-top: 1px solid #efefef;
-    border-bottom: 1px solid #efefef;
-    font-size: 18px;
-    line-height: 50px;
-    text-align: center;
-}
-
-
-/*菜单鼠标划过样式*/
-
-.menu li a:hover {
-    text-decoration: none;
-    background-color: #66c3ec;
-    border-top: 1px solid #83ceed;
-    border-bottom: 1px solid #83ceed;
-    border-right: 3px solid #f8881c;
-    border-left: 3px solid #66c3ec;
-}
-
-
-/*菜单选中状态*/
-
-.header {
-    background-color: #efefef;
-    position: fixed;
-    top: 100px;
-    right: 100px;
     display: none;
-    z-index: 5;
-    padding: 10px;
+    padding: 20px;
 }
 
-.active li a,
-.active li a:hover,
-.active li a:focus {
-    color: #A15309;
-    text-decoration: none;
-    background-color: #FF9F44;
-    border-top: 2px solid #FFBF82;
-    border-bottom: 2px solid #FFBF82;
-    border-right: 4px solid #f8881c;
-    border-left: 3px solid #FFBF82;
+.detail select {
+    width: 25%;
 }
 
-.tablebtn {
-    color: white;
-    height: 30px;
-    padding-top: 0px;
-    ;
-    padding-left: 0px;
-    padding-right: 3px;
-    padding-bottom: 0px;
-    font-size: 6px;
-}
-
-.btn .glyphicon {
-    color: white;
-}
-
-.nav-list,
-.nav-list li a {
-    padding: 0px;
-    margin: 0px;
-}
-
-#create i {
-    color: aliceblue;
-}
-
-.createbtn {
-    height: 50px;
-    float: right;
-    margin: 5px;
-}
-
-.centered {
-    text-align: center;
-}
-
-.detail {
-    background-color: beige;
-    display:none;
+.detail label,
+.detail input,
+.detail select {
+    margin-right: 20px;
 }
 
 .detail td {
     padding: 0px !important;
 }
+
 .nopadding {
     padding: 0px !important;
 }
->>>>>>> origin/master
+
+.detailitem {
+    float: left;
+    width: 40%;
+}

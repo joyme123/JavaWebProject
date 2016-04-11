@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
     <%@taglib uri="/struts-tags" prefix="s"%>
@@ -22,7 +21,7 @@
             <script type="text/javascript">
                 function edit(value) {
                     var txt = "detail" + value;
-                    $("#" + txt).slideToggle("slow");
+                    $("#" + txt).slideToggle("fast");
                 }
             </script>
         </head>
@@ -51,9 +50,9 @@
                                     <table class="table table-hover"></table>
                                 </button>
                                 <div id="newform" class="header">
-                                    <form class="form-horizontal">
+                                    <form>
                                         <fieldset>
-                                            <div id="legend" class="">
+                                            <div>
                                                 <legend class="">添加新车</legend>
                                             </div>
                                             <div class="control-group">
@@ -136,29 +135,42 @@
                                         <tr>
                                             <td class="nopadding" colspan="9">
                                                 <div id="detail<s:property value=" #cars.getIndex() "/>" class="detail">
-                                                    <form class="form-horizontal">
+                                                    <form>
                                                         <fieldset>
-                                                            <div class="control-group">
+                                                            <div class="clearfix">
                                                                 <!-- Text input-->
-                                                                <label class="control-label" for="input01">车型名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge">
-                                                                <label class="control-label">门数</label>
-                                                                <select class="input-xlarge">
-                                                                    <option>4门</option>
-                                                                    <option>2门</option>
-                                                                </select>
-                                                                <label class="control-label">座位数</label>
-                                                                <select class="input-xlarge">
-                                                                    <option>2人</option>
-                                                                    <option>5人</option>
-                                                                    <option>7人</option>
-                                                                    <option>9人</option>
-                                                                </select>
+                                                                <div class="detailitem">
+                                                                    <label class="control-label" for="input01">车型名</label>
+                                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                                </div>
+
+                                                                <div class="detailitem">
+                                                                    <label class="control-label" for="input01">颜色</label>
+                                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                                </div>
+                                                            </div>
+                                                            <div class="clearfix">
+                                                                <div class="detailitem">
+                                                                    <label class="control-label">门数 </label>
+                                                                    <select class="input-xlarge">
+                                                                        <option>4门</option>
+                                                                        <option>2门</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="detailitem">
+                                                                    <label class="control-label">座位数</label>
+                                                                    <select class="input-xlarge">
+                                                                        <option>2人</option>
+                                                                        <option>5人</option>
+                                                                        <option>7人</option>
+                                                                        <option>9人</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div>
                                                                 <label class="control-label" for="input01">后备箱容积</label>
                                                                 <input type="text" placeholder="" class="input-xlarge">
                                                                 <label class="control-label" for="input01">发动机转速</label>
-                                                                <input type="text" placeholder="" class="input-xlarge">
-                                                                <label class="control-label" for="input01">颜色</label>
                                                                 <input type="text" placeholder="" class="input-xlarge">
                                                                 <label class="control-label" for="input01">库存</label>
                                                                 <input type="text" placeholder="" class="input-xlarge">
@@ -183,4 +195,5 @@
                     </div>
                 </div>
         </body>
+
         </html>
