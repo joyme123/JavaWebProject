@@ -14,23 +14,10 @@
             <script src="assets/js/jquery-2.2.3.min.js"></script>
             <script src="assets/js/bootstrap.min.js"></script>
             <script src="assets/js/bootstrap-table.js"></script>
-            <script src="assets/js/createbtn.js"></script>
+            <script src="assets/js/table.js"></script>
             <script src="assets/js/layer/layer.js"></script>
             <link href="assets/css/main.css" rel="stylesheet">
             <link href="assets/css/new.css" rel="stylesheet">
-            <script>
-                function edit() {
-                    layer
-                        .open({
-                            type: 1,
-                            skin: 'layer_edit', //样式类名
-                            closeBtn: 1, //显示关闭按钮
-                            shift: 2,
-                            shadeClose: false, //开启遮罩关闭
-                            content: '<form action="editOrderRecordAction" method="POST">客户姓名:<input type="text" name="user.name"/><br>客户电话:<input type="text" name="user.phoneNumber"/><br>客户邮箱:<input type="text" name="user.email"/><br>客户性别:<input type="text" name="user.sex"/><br>客户年龄:<input type="text"  name="user.age"/><br>客户地址:<input type="text"  name="user.address"/><br><input type="submit" value="修改"/><input type="reset" value="重置"/></form>'
-                        });
-                }
-            </script>
         </head>
 
         <body class="admin">
@@ -113,7 +100,7 @@
                                     <td>住址</td>
                                     <td>修改</td>
                                 </tr>
-                                <s:iterator value="#request.userList" id="userList">
+                                <s:iterator value="#request.userList" id="userList" status="users">
                                     <tr>
                                         <td><s:property value="#userList.id" /></td>
                                         <td><s:property value="#userList.name" /></td>
@@ -123,10 +110,56 @@
                                         <td><s:property value="#userList.age" /></td>
                                         <td><s:property value="#userList.address" /></td>
                                         <td>
-                                            <a id="finish" class="btn btn-success tablebtn"> <i class="glyphicon glyphicon-pencil"></i>修改
+                                            <a id="update<s:property value=" #users.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #users.getIndex() "/>)"> <i class="glyphicon glyphicon-pencil"></i>修改
                                             </a>
-                                            <a id="delete" class="btn btn-danger tablebtn"> <i class="glyphicon glyphicon-remove"></i>删除
+                                            <a id="delete" href="deleteUserAction?id=<s:property value=" #userList.id " />" class="btn btn-danger tablebtn"> <i class="glyphicon glyphicon-remove"></i>删除
                                             </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nopadding" colspan="8">
+                                            <div id="detail<s:property value=" #users.getIndex() "/>" class="detail">
+                                                <form>
+                                                    <fieldset>
+                                                        <div class="clearfix">
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">姓名</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                            </div>
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">性别</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">手机号</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:1em;" value="<s:property value=" #userList.name " />">
+                                                            </div>
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">电子邮箱</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:0em;" value="<s:property value=" #userList.name " />">
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">年龄</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                            </div>
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">住址</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div id="submit<s:property value=" #users.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div id="cancel<s:property value=" #users.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #users.getIndex() "/>)">取消</div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 </s:iterator>

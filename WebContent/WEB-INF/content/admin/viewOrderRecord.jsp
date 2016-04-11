@@ -14,23 +14,10 @@
             <script src="assets/js/jquery-2.2.3.min.js"></script>
             <script src="assets/js/bootstrap.min.js"></script>
             <script src="assets/js/bootstrap-table.js"></script>
-            <script src="assets/js/createbtn.js"></script>
+            <script src="assets/js/table.js"></script>
             <script src="assets/js/layer/layer.js"></script>
             <link href="assets/css/main.css" rel="stylesheet">
             <link href="assets/css/new.css" rel="stylesheet">
-            <script>
-                function edit() {
-                    layer
-                        .open({
-                            type: 1,
-                            skin: 'layer_edit', //样式类名
-                            closeBtn: 1, //显示关闭按钮
-                            shift: 2,
-                            shadeClose: false, //开启遮罩关闭
-                            content: '<form action="editOrderRecordAction" method="POST">客户姓名:<input type="text" name="user.name"/><br>客户电话:<input type="text" name="user.phoneNumber"/><br>客户邮箱:<input type="text" name="user.email"/><br>客户性别:<input type="text" name="user.sex"/><br>客户年龄:<input type="text"  name="user.age"/><br>客户地址:<input type="text"  name="user.address"/><br><input type="submit" value="修改"/><input type="reset" value="重置"/></form>'
-                        });
-                }
-            </script>
         </head>
 
         <body class="admin">
@@ -119,7 +106,7 @@
                                     <td>备注</td>
                                     <td>订单选项</td>
                                 </tr>
-                                <s:iterator value="#request.orderRecordList" id="orderRecordList">
+                                <s:iterator value="#request.orderRecordList" id="orderRecordList" status="orders">
                                     <tr>
                                         <td><s:property value="#orderRecordList.id" /></td>
                                         <td><s:property value="#orderRecordList.userId" /></td>
@@ -130,10 +117,68 @@
                                         <td><s:property value="#orderRecordList.orderMoney" /></td>
                                         <td><s:property value="#orderRecordList.note" /></td>
                                         <td>
-                                            <a id="finish" class="btn btn-success tablebtn" onclick="edit()"> <i class="glyphicon glyphicon-pencil"></i>修改
+                                            <a id="update<s:property value=" #orders.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #orders.getIndex() "/>)"> <i class="glyphicon glyphicon-pencil"></i>修改
                                             </a>
-                                            <a id="delete" class="btn btn-danger tablebtn"> <i class="glyphicon glyphicon-remove"></i>删除
+                                            <a id="delete" href="deleteOrderRecordAction?id=<s:property value=" #orderRecordList.id " />" class="btn btn-danger tablebtn"> <i class="glyphicon glyphicon-remove"></i>删除
                                             </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nopadding" colspan="9">
+                                            <div id="detail<s:property value=" #orders.getIndex() "/>" class="detail">
+                                                <form>
+                                                    <fieldset>
+                                                        <div class="clearfix">
+                                                            <!-- Text input-->
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">车型名</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #orderRecordList.id " />">
+                                                            </div>
+
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">颜色</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:3em;" value="<s:property value=" #orderRecordList.id " />">
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="detailitem">
+                                                                <label class="control-label">门数</label>
+                                                                <select class="input-xlarge" style="margin-left:3em;">
+                                                                    <option>4门</option>
+                                                                    <option>2门</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="detailitem">
+                                                                <label class="control-label">座位数</label>
+                                                                <select class="input-xlarge" style="margin-left:2em;">
+                                                                    <option>2人</option>
+                                                                    <option>5人</option>
+                                                                    <option>7人</option>
+                                                                    <option>9人</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">后备箱容积</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #orderRecordList.id " />">
+                                                            </div>
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">发动机转速</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #orderRecordList.id " />">
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="detailitem">
+                                                                <label class="control-label" for="input01">库存</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:3em;" value="<s:property value=" #orderRecordList.id " />">
+                                                            </div>
+                                                            <div id="submit<s:property value=" #orders.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
+                                                        </div>
+                                                        <div id="cancel<s:property value=" #orders.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #orders.getIndex() "/>)">取消</div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 </s:iterator>

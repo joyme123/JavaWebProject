@@ -117,7 +117,6 @@ hr {
     right: 0px;
     height: 100%;
     padding-bottom: 100px;
-    max-width: 75%;
     overflow: auto;
     position: fixed;
 }
@@ -204,6 +203,7 @@ hr {
 
 #create i {
     color: aliceblue;
+    margin: 7px;
 }
 
 .createbtn {
@@ -217,7 +217,7 @@ hr {
 }
 
 .detail {
-    background-color: beige;
+    background-color: #FAFAFA;
     display: none;
     padding: 20px;
 }
