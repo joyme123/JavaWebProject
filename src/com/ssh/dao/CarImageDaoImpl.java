@@ -23,7 +23,7 @@ public class CarImageDaoImpl implements CarImageDao {
 	@Override
 	public CarImage getByCarModelId(int carModelId) {
 		Session session = sessionFactory.openSession();
-		String hql = "select * from CarImage car_image where car_image.car_model_id='" + carModelId + "'";
+		String hql = "from CarImage car_image where car_image.carModelId='" + carModelId + "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();
@@ -38,7 +38,7 @@ public class CarImageDaoImpl implements CarImageDao {
 	@Override
 	public CarImage getById(int id) {
 		Session session = sessionFactory.openSession();
-		String hql = "select * from CarImage car_image where car_image.id='" + id + "'";
+		String hql = "from CarImage car_image where car_image.id='" + id + "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();

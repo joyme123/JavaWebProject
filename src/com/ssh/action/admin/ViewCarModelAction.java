@@ -38,6 +38,7 @@ public class ViewCarModelAction extends ActionSupport {
 		Map request = (Map) ActionContext.getContext().get("request");
 		request.put("carModelList", result.getResult());
 		request.put("pageCount", result.getPageCount());
+		System.out.println(result.getPageCount());
 		return SUCCESS;
 	}
 

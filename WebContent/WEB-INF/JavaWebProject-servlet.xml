@@ -84,6 +84,11 @@
 			<ref bean="carImageService"></ref>
 		</property>
 	</bean>
+	<bean id="viewCarImageAction" class="com.ssh.action.admin.ViewCarImageAction" scope="prototype">
+		<property name="carImageService">
+			<ref bean="carImageService"></ref>
+		</property>
+	</bean>
 	
 	<bean id="carModelDao" class="com.ssh.dao.CarModelDaoImpl" scope="singleton">
 		<property name="sessionFactory">
