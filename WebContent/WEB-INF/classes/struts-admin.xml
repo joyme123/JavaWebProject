@@ -94,5 +94,10 @@
         	<result name="success"  type="chain">viewCarModelAction</result>
         	<result name="error">/WEB-INF/content/admin/error.jsp</result>
         </action>
+        <action name="viewCarImageAction" class="com.ssh.action.admin.ViewCarImageAction" method="execute"> 
+        	<result name="input">/WEB-INF/content/admin/addCarImage.jsp</result>
+        	<result name="success">/WEB-INF/content/admin/viewCarImage.jsp</result>
+        	<result name="error">/WEB-INF/content/admin/error.jsp</result>
+        </action>
     </package>  
 </struts>  
