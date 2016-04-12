@@ -224,11 +224,11 @@
 						<%
 							if (curPage == maxPage) {
 						%>
-						<li class="disabled"><a>下一页</a></li>
+						<li class="disabled"><a>下一页gay</a></li>
 						<%
 							} else {
 						%>
-						<li><a href="viewCarModelAction?page=<%=curPage + 1%>">下一页</a></li>
+						<li><a href="viewCarModelAction?page=<%=curPage + 1%>">下一页></a></li>
 						<%
 							}
 						%>
