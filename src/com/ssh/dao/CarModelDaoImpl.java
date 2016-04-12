@@ -83,11 +83,11 @@ public class CarModelDaoImpl implements CarModelDao {
 		QueryResult queryResult = new QueryResult();
 		int pageSize = queryResult.getPageSize();
 		int left = ((page - 1) * pageSize) > 0 ? (page - 1) * pageSize : 0;
-		int right = page * pageSize > 0 ? page * pageSize : 0;
+		// int right = page * pageSize > 0 ? page * pageSize : 0;
 		String hql = "from CarModel car_model order by car_model.id";
 		Query query = session.createQuery(hql);
 		query.setFirstResult(left);
-		query.setMaxResults(right);
+		query.setMaxResults(pageSize);
 		ArrayList<Object> carModelList = (ArrayList<Object>) query.list();
 		String hql2 = "select count(*) from CarModel";
 		Query query2 = session.createQuery(hql2);
