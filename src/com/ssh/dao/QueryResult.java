@@ -21,7 +21,10 @@ public class QueryResult {
 	}
 
 	public void setPageCount(int count) {
-		this.pageCount = count / pageSize + 1;
+		if (count % pageSize > 0)
+			this.pageCount = count / pageSize + 1;
+		else
+			this.pageCount = count / pageSize;
 	}
 
 	public int getPageSize() {

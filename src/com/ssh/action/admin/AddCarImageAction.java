@@ -72,9 +72,9 @@ public class AddCarImageAction extends ActionSupport {
 			for (int i = 0; i < uploadFile.size(); i++) {
 				File savefile = new File(realpath, uploadFileFileName.get(i));
 				if (url.equals(""))
-					url = url + realpath + "/" + uploadFileFileName.get(i);
+					url = url + "/assets/upload/" + uploadFileFileName.get(i);
 				else
-					url = url + "|" + realpath + "/" + uploadFileFileName.get(i);
+					url = url + "|/assets/upload/" + uploadFileFileName.get(i);
 				FileUtils.copyFile(uploadFile.get(i), savefile);
 			}
 			HttpSession session = ServletActionContext.getRequest().getSession();
