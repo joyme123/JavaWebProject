@@ -34,6 +34,9 @@
                             <ul class="nav nav-list active menu">
                                 <li><a href="">订单管理</a></li>
                             </ul>
+                            <ul class="nav nav-list menu">
+                                <li><a href="dispatcherAction!goAddCarImage">图片上传</a></li>
+                            </ul>
                         </div>
                         <div class="col-xs-9 list">
                             <div>

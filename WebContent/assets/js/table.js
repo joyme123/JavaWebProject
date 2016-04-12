@@ -31,3 +31,9 @@ function showPic() {
         shadeClose: true
     });
 }
+
+function addFile() {
+    if (true) {
+        $("#carID").before("<input type=\"file\" name = \"uploadFile\" id = \"uploadFile\">");
+    }
+}

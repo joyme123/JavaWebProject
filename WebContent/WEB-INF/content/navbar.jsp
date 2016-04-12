@@ -27,6 +27,7 @@
 						<li><a href="viewCarModelAction">车型管理</a></li>
 						<li><a href="viewUserAction">用户管理</a></li>
 						<li><a href="viewOrderRecordAction">订单管理</a></li>
+						<li><a href="dispatcherAction!goAddCarImage">图片上传</a></li>
 					</ul></li>
 				<li><a href="logoutAdminAction"><span
 						class="glyphicon glyphicon-remove"></span> 退出</a></li>
