@@ -217,7 +217,7 @@
 						<%
 							} else {
 						%>
-						<li><a href="viewCarModelAction?page=<%=curPage - 1%>"></a>上一页</li>
+						<li><a href="viewCarModelAction?page=<%=curPage - 1%>">上一页</a></li>
 						<%
 							}
 						%>
@@ -232,7 +232,6 @@
 						<%
 							}
 						%>
-						<li><a href="#">Next</a></li>
 					</ul>
 				</nav>
 				<div class="footer">
