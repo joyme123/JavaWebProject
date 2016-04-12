@@ -101,7 +101,7 @@
                                     <td>修改</td>
                                 </tr>
                                 <s:iterator value="#request.userList" id="userList" status="users">
-                                    <tr>
+                                    <tr id="row<s:property value=" #users.getIndex() "/>" onmouseover="show('row',<s:property value=" #users.getIndex() "/>)">
                                         <td><s:property value="#userList.id" /></td>
                                         <td><s:property value="#userList.name" /></td>
                                         <td><s:property value="#userList.gender" /></td>
@@ -124,31 +124,31 @@
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">姓名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">性别</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">手机号</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:1em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #userList.name " />">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">电子邮箱</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:0em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 0em;" value="<s:property value=" #userList.name " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">年龄</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">住址</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
@@ -164,10 +164,104 @@
                                     </tr>
                                 </s:iterator>
                             </table>
-                            <div class="footer">
-                                <hr>
-                                <p>Created by 阿夯 - 2016</p>
-                            </div>
+                            <%
+					String temp = request.getParameter("page");
+					int curPage;
+					int maxPage;
+					maxPage = (int) request.getAttribute("pageCount");
+					if (temp == null) {
+						curPage = 1;
+					} else {
+						curPage = Integer.parseInt(temp);
+					}
+				%>
+                                <nav>
+                                    <ul class="pagination pages right">
+                                        <%
+						if (curPage == 1) {
+					%>
+                                            <li class="disabled">
+                                                <a aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a>
+                                            </li>
+                                            <%
+						} else {
+					%>
+                                                <li><a href="viewUserAction?page=<%=curPage - 1%>" aria-label="Previous"><span aria-hidden="true">&laquo;</span>
+					</a></li>
+                                                <%
+						}
+					%>
+                                                    <li id="pageTab1"><a href="viewUserAction?page=1">1</a></li>
+                                                    <li id="leftDot"><a>...</a></li>
+                                                    <%
+						for (int i = 2; i < maxPage; i++) {
+					%>
+                                                        <li id="pageTab<%=i%>">
+                                                            <a href="viewUserAction?page=<%=i%>">
+                                                                <%=i%>
+                                                            </a>
+                                                        </li>
+                                                        <%
+						}
+					%>
+                                                            <li id="rightDot"><a>...</a></li>
+                                                            <%
+						if (maxPage != 1) {
+					%>
+                                                                <li id="pageTab<%=maxPage%>">
+                                                                    <a href="viewUserAction?page=<%=maxPage%>">
+                                                                        <%=maxPage%>
+                                                                    </a>
+                                                                </li>
+                                                                <%
+						}
+						if (curPage == maxPage) {
+					%>
+                                                                    <li class="disabled">
+                                                                        <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <%
+						} else {
+					%>
+                                                                        <li>
+                                                                            <a href="viewUserAction?page=<%=curPage + 1%>" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <%
+						}
+					%>
+                                    </ul>
+                                </nav>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        var current = <%=curPage%>;
+                                        var max = <%=maxPage%>;
+                                        if (current > 4) {
+                                            for (var i = 2; i < current - 2; i++) {
+                                                var pageTab = "pageTab" + i;
+                                                $("#" + pageTab).remove();
+                                            }
+                                        } else {
+                                            $("#leftDot").remove();
+                                        }
+                                        if (current < max - 3) {
+                                            for (var i = max - 1; i > current + 2; i--) {
+                                                var pageTab = "pageTab" + i;
+                                                $("#" + pageTab).remove();
+                                            }
+                                        } else {
+                                            $("#rightDot").remove();
+                                        }
+                                        var currentPage = "pageTab" + current;
+                                        $("#" + currentPage).attr("class", "active");
+                                        $("#" + currentPage).children().attr("href", "");
+                                    });
+                                </script>
+                                <div class="footer">
+                                    <hr>
+                                    <p>Created by 阿夯 - 2016</p>
+                                </div>
                         </div>
                     </div>
                 </div>

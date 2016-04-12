@@ -44,7 +44,7 @@
                                     <form class="form-horizontal">
                                         <fieldset>
                                             <div id="legend" class="">
-                                                <legend class="">添加新订单</legend>
+                                                <legend>添加新订单</legend>
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
@@ -107,7 +107,7 @@
                                     <td>订单选项</td>
                                 </tr>
                                 <s:iterator value="#request.orderRecordList" id="orderRecordList" status="orders">
-                                    <tr>
+                                    <tr id="row<s:property value=" #orders.getIndex() "/>" onmouseover="show('row',<s:property value=" #orders.getIndex() "/>)">
                                         <td><s:property value="#orderRecordList.id" /></td>
                                         <td><s:property value="#orderRecordList.userId" /></td>
                                         <td><s:property value="#orderRecordList.userId" /></td>
@@ -117,7 +117,8 @@
                                         <td><s:property value="#orderRecordList.orderMoney" /></td>
                                         <td><s:property value="#orderRecordList.note" /></td>
                                         <td>
-                                            <a id="update<s:property value=" #orders.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #orders.getIndex() "/>)"> <i class="glyphicon glyphicon-pencil"></i>修改
+                                            <a id="update<s:property value=" #orders.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #orders.getIndex() "/>)">
+                                                <i class="glyphicon glyphicon-pencil"></i>修改
                                             </a>
                                             <a id="delete" href="deleteOrderRecordAction?id=<s:property value=" #orderRecordList.id " />" class="btn btn-danger tablebtn"> <i class="glyphicon glyphicon-remove"></i>删除
                                             </a>
@@ -132,25 +133,25 @@
                                                             <!-- Text input-->
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">车型名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:2em;" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #orderRecordList.id " />">
                                                             </div>
 
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">颜色</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:3em;" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.id " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label">门数</label>
-                                                                <select class="input-xlarge" style="margin-left:3em;">
+                                                                <select class="input-xlarge" style="margin-left: 3em;">
                                                                     <option>4门</option>
                                                                     <option>2门</option>
                                                                 </select>
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label">座位数</label>
-                                                                <select class="input-xlarge" style="margin-left:2em;">
+                                                                <select class="input-xlarge" style="margin-left: 2em;">
                                                                     <option>2人</option>
                                                                     <option>5人</option>
                                                                     <option>7人</option>
@@ -171,7 +172,7 @@
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">库存</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left:3em;" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.id " />">
                                                             </div>
                                                             <div id="submit<s:property value=" #orders.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
                                                         </div>
@@ -183,10 +184,104 @@
                                     </tr>
                                 </s:iterator>
                             </table>
-                            <div class="footer">
-                                <hr>
-                                <p>Created by 阿夯 - 2016</p>
-                            </div>
+                            <%
+					String temp = request.getParameter("page");
+					int curPage;
+					int maxPage;
+					maxPage = (int) request.getAttribute("pageCount");
+					if (temp == null) {
+						curPage = 1;
+					} else {
+						curPage = Integer.parseInt(temp);
+					}
+				%>
+                                <nav>
+                                    <ul class="pagination pages right">
+                                        <%
+							if (curPage == 1) {
+						%>
+                                            <li class="disabled">
+                                                <a aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a>
+                                            </li>
+                                            <%
+							} else {
+						%>
+                                                <li><a href="viewOrderRecordAction?page=<%=curPage - 1%>" aria-label="Previous"><span aria-hidden="true">&laquo;</span>
+						</a></li>
+                                                <%
+							}
+						%>
+                                                    <li id="pageTab1"><a href="viewOrderRecordAction?page=1">1</a></li>
+                                                    <li id="leftDot"><a>...</a></li>
+                                                    <%
+							for (int i = 2; i < maxPage; i++) {
+						%>
+                                                        <li id="pageTab<%=i%>">
+                                                            <a href="viewOrderRecordAction?page=<%=i%>">
+                                                                <%=i%>
+                                                            </a>
+                                                        </li>
+                                                        <%
+							}
+						%>
+                                                            <li id="rightDot"><a>...</a></li>
+                                                            <%
+							if (maxPage != 1) {
+						%>
+                                                                <li id="pageTab<%=maxPage%>">
+                                                                    <a href="viewOrderRecordAction?page=<%=maxPage%>">
+                                                                        <%=maxPage%>
+                                                                    </a>
+                                                                </li>
+                                                                <%
+							}
+							if (curPage == maxPage) {
+						%>
+                                                                    <li class="disabled">
+                                                                        <a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <%
+							} else {
+						%>
+                                                                        <li>
+                                                                            <a href="viewOrderRecordAction?page=<%=curPage + 1%>" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+                                                                            </a>
+                                                                        </li>
+                                                                        <%
+							}
+						%>
+                                    </ul>
+                                </nav>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        var current = <%=curPage%>;
+                                        var max = <%=maxPage%>;
+                                        if (current > 4) {
+                                            for (var i = 2; i < current - 2; i++) {
+                                                var pageTab = "pageTab" + i;
+                                                $("#" + pageTab).remove();
+                                            }
+                                        } else {
+                                            $("#leftDot").remove();
+                                        }
+                                        if (current < max - 3) {
+                                            for (var i = max - 1; i > current + 2; i--) {
+                                                var pageTab = "pageTab" + i;
+                                                $("#" + pageTab).remove();
+                                            }
+                                        } else {
+                                            $("#rightDot").remove();
+                                        }
+                                        var currentPage = "pageTab" + current;
+                                        $("#" + currentPage).attr("class", "active");
+                                        $("#" + currentPage).children().attr("href", "");
+                                    });
+                                </script>
+                                <div class="footer">
+                                    <hr>
+                                    <p>Created by 阿夯 - 2016</p>
+                                </div>
                         </div>
                     </div>
                 </div>
