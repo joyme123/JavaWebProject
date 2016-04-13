@@ -44,7 +44,7 @@
                                     <i class="glyphicon glyphicon-plus"></i>新建
                                 </button>
                                 <div id="newform" class="header" style="width: 400px;">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" action="addOrderRecordAction" method="post">
                                         <fieldset>
                                             <div id="legend" class="">
                                                 <legend>添加新订单</legend>
@@ -130,7 +130,7 @@
                                     <tr>
                                         <td class="nopadding" colspan="9">
                                             <div id="detail<s:property value=" #orders.getIndex() "/>" class="detail">
-                                                <form>
+                                                <form action="editOrderRecordAction" method="post">
                                                     <fieldset>
                                                         <div class="clearfix">
                                                             <!-- Text input-->

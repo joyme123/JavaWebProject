@@ -263,3 +263,24 @@ hr {
     margin-bottom: 0;
     margin-right: 200px;
 }
+
+.file {
+    width: 50%;
+}
+
+#addFile {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    width: 70%;
+    background-color: antiquewhite;
+    border-radius: 50px;
+}
+
+#addFile input {
+    margin: 20px;
+}
+
+.addbtn {
+    margin: 30px;
+}

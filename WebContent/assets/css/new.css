@@ -1,11 +1,17 @@
-body{
-	max-height:100%;
+body {
+    max-height: 100%;
 }
+
 .footer {
+    background-color: white;
     position: fixed;
     width: 75%;
     text-align: center;
     bottom: 0px;
+}
+
+.footer hr {
+    margin-top: 0;
 }
 
 .footer p {

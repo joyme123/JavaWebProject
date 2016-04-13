@@ -36,8 +36,8 @@
                                     <li><a href="viewOrderRecordAction">订单管理</a></li>
                                 </ul>
                                 <ul class="nav nav-list menu">
-                                <li><a href="dispatcherAction!goAddCarImage">图片上传</a></li>
-                            </ul>
+                                    <li><a href="dispatcherAction!goAddCarImage">图片上传</a></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="col-xs-9 list">
@@ -46,7 +46,7 @@
                                     <i class="glyphicon glyphicon-plus"></i>新建
                                 </button>
                                 <div id="newform" class="header">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" action="addUserAction" method="post">
                                         <fieldset>
                                             <div id="legend" class="">
                                                 <legend class="">添加新顾客</legend>
@@ -122,7 +122,7 @@
                                     <tr>
                                         <td class="nopadding" colspan="8">
                                             <div id="detail<s:property value=" #users.getIndex() "/>" class="detail">
-                                                <form>
+                                                <form action="editUserAction" method="post">
                                                     <fieldset>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
