@@ -5,7 +5,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>查看汽车图片</title>
 <link href="assets/css/main.css" rel="stylesheet">
 <link href="assets/css/bootstrap.css" rel="stylesheet">
