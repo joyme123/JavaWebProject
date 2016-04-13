@@ -64,23 +64,18 @@ public class AddCarImageAction extends ActionSupport {
 
 	public String upload() throws IOException {
 		String realpath = ServletActionContext.getServletContext().getRealPath("/assets/upload");
-		String url = "";
 		if (uploadFile != null) {
 			File savepath = new File(realpath);
 			if (!savepath.exists())
 				savepath.mkdirs();
 			for (int i = 0; i < uploadFile.size(); i++) {
 				File savefile = new File(realpath, uploadFileFileName.get(i));
-				if (url.equals(""))
-					url = url + "/assets/upload/" + uploadFileFileName.get(i);
-				else
-					url = url + "|/assets/upload/" + uploadFileFileName.get(i);
+				CarImage carImage = new CarImage(this.carModelId, "/assets/upload/" + uploadFileFileName.get(i));
+				this.carImageService.add(carImage);
 				FileUtils.copyFile(uploadFile.get(i), savefile);
 			}
 			HttpSession session = ServletActionContext.getRequest().getSession();
 			session.setAttribute("message", "上传成功！");
-			CarImage carImage = new CarImage(this.carModelId, url);
-			this.carImageService.add(carImage);
 			return SUCCESS;
 		}
 		return ERROR;
