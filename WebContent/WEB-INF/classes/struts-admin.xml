@@ -26,6 +26,7 @@
             <result name="addUser">/WEB-INF/content/admin/addUser.jsp</result>
             <result name="addOrderRecord">/WEB-INF/content/admin/addOrderRecord.jsp</result>
             <result name="addCarImage">/WEB-INF/content/admin/addCarImage.jsp</result>
+            <result name="getUserById">/WEB-INF/content/admin/getUserTest.jsp</result>
         </action> 
         <action name="logoutAdminAction" class="com.ssh.action.admin.LogoutAdminAction" method="execute">  
             <result name="input">/WEB-INF/content/admin/index.jsp</result>
@@ -68,6 +69,12 @@
         	<result name="input">/WEB-INF/content/admin/viewUser.jsp</result>
         	<result name="success"  type="chain">viewUserAction</result>
         	<result name="error">/WEB-INF/content/admin/error.jsp</result>
+        </action>
+        <action name="getUserByIdAction" class="com.ssh.action.admin.GetUserByIdAction" method="execute">
+        	<result type="stream">
+        		<param name="contentType">text/html</param>
+        		<param name="inputName">result</param>
+        	</result>
         </action>
         
         <action name="viewOrderRecordAction" class="com.ssh.action.admin.ViewOrderRecordAction" method="execute">
