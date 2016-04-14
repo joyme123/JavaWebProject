@@ -26,7 +26,7 @@
                             title: false,
                             shadeClose: true,
                             shade: 0.8,
-                            area:["70%",'70%'],
+                            area: ["70%", '70%'],
                             content: 'viewCarImageAction?carModelId=12'
                         });
                     }
@@ -115,7 +115,7 @@
                                             <td>车型名</td>
                                             <td>门数</td>
                                             <td>座位数</td>
-                                            <td>后备箱容积</td>
+                                            <td>价格</td>
                                             <td>发动机转速</td>
                                             <td>颜色</td>
                                             <td>库存</td>
@@ -127,12 +127,12 @@
 										class="glyphicon glyphicon-picture"></i></a></td>
                                                 <td><s:property value="#carModelList.id" /></td>
                                                 <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.modelName" /></td>
+                                                <td><s:property value="#carModelList.doorCount" /></td>
+                                                <td><s:property value="#carModelList.seatCount" /></td>
+                                                <td><s:property value="#carModelList.price" /></td>
+                                                <td><s:property value="#carModelList.engineSpeed" /></td>
+                                                <td><s:property value="#carModelList.color" /></td>
+                                                <td><s:property value="#carModelList.storage" /></td>
                                                 <td>
                                                     <a id="update<s:property value=" #cars.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #cars.getIndex() "/>)"> <i class="glyphicon glyphicon-pencil"></i>修改
                                                     </a> <a id="delete" href="deleteCarModelAction?id=<s:property value=" #carModelList.id " />" class="btn btn-danger tablebtn"> <i

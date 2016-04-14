@@ -6,26 +6,11 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 735587336510101686L;
 	private int id;
 	private String name;
-	private String phoneNumber;
+	private String gender;
+	private String phone;
 	private String email;
-	private String sex;
 	private int age;
 	private String address;
-
-	public User() {
-
-	}
-
-	public User(int id, String name, String phoneNumber, String email, String sex, int age, String address) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-		this.sex = sex;
-		this.age = age;
-		this.address = address;
-	}
 
 	public int getId() {
 		return id;
@@ -43,12 +28,20 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getEmail() {
@@ -57,14 +50,6 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
 	}
 
 	public int getAge() {

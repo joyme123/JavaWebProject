@@ -5,25 +5,13 @@ import java.io.Serializable;
 public class OrderRecord implements Serializable {
 	private static final long serialVersionUID = 7938524977476803780L;
 	private int id;
-	private int carModelId;
-	private int userId;
-	private int time;
-	private double orderMoney;
+	private int userID;
+	private String userName;
+	private int carID;
+	private String carName;
 	private double discount;
-
-	public OrderRecord() {
-
-	}
-
-	public OrderRecord(int id, int carModelId, int userId, int time, double orderMoney, double discount) {
-		super();
-		this.id = id;
-		this.carModelId = carModelId;
-		this.userId = userId;
-		this.time = time;
-		this.orderMoney = orderMoney;
-		this.discount = discount;
-	}
+	private int price;
+	private String note;
 
 	public int getId() {
 		return id;
@@ -33,36 +21,36 @@ public class OrderRecord implements Serializable {
 		this.id = id;
 	}
 
-	public int getCarModelId() {
-		return carModelId;
+	public int getUserID() {
+		return userID;
 	}
 
-	public void setCarModelId(int carModelId) {
-		this.carModelId = carModelId;
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 
-	public int getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public int getTime() {
-		return time;
+	public int getCarID() {
+		return carID;
 	}
 
-	public void setTime(int time) {
-		this.time = time;
+	public void setCarID(int carID) {
+		this.carID = carID;
 	}
 
-	public double getOrderMoney() {
-		return orderMoney;
+	public String getCarName() {
+		return carName;
 	}
 
-	public void setOrderMoney(double orderMoney) {
-		this.orderMoney = orderMoney;
+	public void setCarName(String carName) {
+		this.carName = carName;
 	}
 
 	public double getDiscount() {
@@ -71,6 +59,22 @@ public class OrderRecord implements Serializable {
 
 	public void setDiscount(double discount) {
 		this.discount = discount;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 }

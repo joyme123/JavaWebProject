@@ -24,7 +24,7 @@
             <%@include file="../navbar.jsp"%>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-3 navlist">
+                        <div class="col-sm-3 hidden-xs navlist">
                             <div class="nav-list">
                                 <ul class="nav nav-list menu">
                                     <li><a href="viewCarModelAction">车型管理</a></li>
@@ -40,7 +40,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xs-9 list">
+                        <div class="col-sm-9 col-xs-12 list">
                             <div>
                                 <button id="create" class="btn btn-warning createbtn">
                                     <i class="glyphicon glyphicon-plus"></i>新建
@@ -108,7 +108,7 @@
                                         <td><s:property value="#userList.id" /></td>
                                         <td><s:property value="#userList.name" /></td>
                                         <td><s:property value="#userList.gender" /></td>
-                                        <td><s:property value="#userList.tel" /></td>
+                                        <td><s:property value="#userList.phone" /></td>
                                         <td><s:property value="#userList.email" /></td>
                                         <td><s:property value="#userList.age" /></td>
                                         <td><s:property value="#userList.address" /></td>
@@ -131,27 +131,27 @@
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">性别</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.gender " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">手机号</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #userList.phone " />">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">电子邮箱</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 0em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 0em;" value="<s:property value=" #userList.email " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">年龄</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.age " />">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">住址</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.address " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
