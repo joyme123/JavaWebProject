@@ -151,6 +151,11 @@
 			<ref bean="userService"></ref>
 		</property>
 	</bean>
+	<bean id="getUserByIdAction" class="com.ssh.action.admin.GetUserByIdAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService"></ref>
+		</property>
+	</bean>
 	
 	<bean id="orderRecordDao" class="com.ssh.dao.OrderRecordDaoImpl" scope="singleton">
 		<property name="sessionFactory">

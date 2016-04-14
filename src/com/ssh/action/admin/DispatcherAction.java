@@ -35,4 +35,8 @@ public class DispatcherAction extends ActionSupport {
 	public String goAddCarImage() {
 		return "addCarImage";
 	}
+
+	public String goGetUser() {
+		return "getUserById";
+	}
 }
