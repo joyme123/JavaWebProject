@@ -43,7 +43,10 @@ public class GetCarModelByIdAction implements Action {
 	@Override
 	public String execute() throws Exception {
 		CarModel carModel = carModelService.getCarModelById(id);
-		inputStream = new ByteArrayInputStream(carModel.getModelName().getBytes("UTF-8"));
+		if (carModel == null)
+			inputStream = new ByteArrayInputStream("null".getBytes("UTF-8"));
+		else
+			inputStream = new ByteArrayInputStream(carModel.getModelName().getBytes("UTF-8"));
 		return SUCCESS;
 	}
 

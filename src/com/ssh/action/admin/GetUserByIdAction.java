@@ -43,7 +43,10 @@ public class GetUserByIdAction implements Action {
 	@Override
 	public String execute() throws Exception {
 		User user = userService.getUserById(id);
-		inputStream = new ByteArrayInputStream(user.getName().getBytes("UTF-8"));
+		if (user == null)
+			inputStream = new ByteArrayInputStream("null".getBytes("UTF-8"));
+		else
+			inputStream = new ByteArrayInputStream(user.getName().getBytes("UTF-8"));
 		return SUCCESS;
 	}
 
