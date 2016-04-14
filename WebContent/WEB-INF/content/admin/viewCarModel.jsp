@@ -20,6 +20,16 @@
                 <link href="assets/css/main.css" rel="stylesheet">
                 <link href="assets/css/new.css" rel="stylesheet">
                 <script type="text/javascript">
+                    function edit(value) {
+                        var txt = "detail" + value;
+                        var data = "row" + value;
+                        var door = $("#" + data).children("#doorData").html();
+                        var seat = $("#" + data).children("#seatData").html();
+                        $("#door" + value + " #" + door + "d").attr("selected", "true");
+                        $("#seat" + value + " #" + seat + "p").attr("selected", "true");
+                        $("#" + txt).slideToggle(500);
+                    }
+
                     function showPic() {
                         layer.open({
                             type: 2,
@@ -60,44 +70,44 @@
                                         <i class="glyphicon glyphicon-plus"></i>新建
                                     </button>
                                     <div id="newform" class="header" action="addCarModelAction" method="post">
-                                        <form>
+                                        <form action="addCarModelAction" method="post">
                                             <fieldset>
                                                 <div>
                                                     <legend class="">添加新车</legend>
                                                 </div>
                                                 <div>
                                                     <label class="control-label" for="input01">车型名</label>
-                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                    <input type="text" placeholder="" class="input-xlarge" name="carModel.modelName">
                                                 </div>
                                                 <div>
                                                     <label class="control-label">门数</label>
-                                                    <select class="input-xlarge">
-                                                        <option>4门</option>
-                                                        <option>2门</option>
+                                                    <select class="input-xlarge" name="carModel.doorCount">
+                                                        <option value="4">4门</option>
+                                                        <option value="2">2门</option>
                                                     </select>
                                                     <label class="control-label">座位数</label>
-                                                    <select class="input-xlarge">
-                                                        <option>2人</option>
-                                                        <option>5人</option>
-                                                        <option>7人</option>
-                                                        <option>9人</option>
+                                                    <select class="input-xlarge" name="carModel.seatCount">
+                                                        <option value="2">2人</option>
+                                                        <option value="5">5人</option>
+                                                        <option value="7">7人</option>
+                                                        <option value="9">9人</option>
                                                     </select>
                                                 </div>
                                                 <div>
-                                                    <label class="control-label" for="input01">后备箱容积</label>
-                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                    <label class="control-label" for="input01">价格</label>
+                                                    <input type="text" placeholder="" class="input-xlarge" name="carModel.price">
                                                 </div>
                                                 <div>
                                                     <label class="control-label" for="input01">发动机转速</label>
-                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                    <input type="text" placeholder="" class="input-xlarge" name="carModel.engineSpeed">
                                                 </div>
                                                 <div>
                                                     <label class="control-label" for="input01">颜色 </label>
-                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                    <input type="text" placeholder="" class="input-xlarge" name="carModel.color">
                                                 </div>
                                                 <div>
                                                     <label class="control-label" for="input01">库存</label>
-                                                    <input type="text" placeholder="" class="input-xlarge">
+                                                    <input type="text" placeholder="" class="input-xlarge" name="carModel.storage">
                                                 </div>
                                                 <div class="controls">
                                                     <div id="submit" class="btn btn-success">提交</div>
@@ -122,77 +132,80 @@
                                             <td>操作</td>
                                         </tr>
                                         <s:iterator value="#request.carModelList" id="carModelList" status="cars">
-                                            <tr>
+                                            <tr id="row<s:property value=" #cars.getIndex() "/>">
                                                 <td><a onclick="showPic()"><i
 										class="glyphicon glyphicon-picture"></i></a></td>
                                                 <td><s:property value="#carModelList.id" /></td>
                                                 <td><s:property value="#carModelList.modelName" /></td>
-                                                <td><s:property value="#carModelList.doorCount" /></td>
-                                                <td><s:property value="#carModelList.seatCount" /></td>
+                                                <td id="doorData"><s:property value="#carModelList.doorCount" /></td>
+                                                <td id="seatData"><s:property value="#carModelList.seatCount" /></td>
                                                 <td><s:property value="#carModelList.price" /></td>
                                                 <td><s:property value="#carModelList.engineSpeed" /></td>
                                                 <td><s:property value="#carModelList.color" /></td>
                                                 <td><s:property value="#carModelList.storage" /></td>
                                                 <td>
                                                     <a id="update<s:property value=" #cars.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #cars.getIndex() "/>)"> <i class="glyphicon glyphicon-pencil"></i>修改
-                                                    </a> <a id="delete" href="deleteCarModelAction?id=<s:property value=" #carModelList.id " />" class="btn btn-danger tablebtn"> <i
-										class="glyphicon glyphicon-remove"
-										onclick="show('row',<s:property value=" #cars.getIndex() "/>)"></i>删除
-								</a></td>
+                                                    </a>
+                                                    <a id="delete" href="deleteCarModelAction?id=<s:property value=" #carModelList.id " />" class="btn btn-danger tablebtn"> <i class="glyphicon glyphicon-remove"></i>删除
+                                                    </a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="nopadding" colspan="10">
                                                     <div id="detail<s:property value=" #cars.getIndex() "/>" class="detail">
                                                         <form action="editCarModelAction" method="post">
                                                             <fieldset>
+                                                                <input type="hidden" value="<s:property value=" #carModelList.id " />" name="carModel.id">
                                                                 <div class="clearfix">
                                                                     <!-- Text input-->
                                                                     <div class="detailitem">
                                                                         <label class="control-label" for="input01">车型名</label>
-                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #carModelList.modelName " />">
+                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #carModelList.modelName " />" name="carModel.modelName">
                                                                     </div>
 
                                                                     <div class="detailitem">
                                                                         <label class="control-label" for="input01">颜色</label>
-                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #carModelList.modelName " />">
+                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #carModelList.color " />" name="carModel.color">
                                                                     </div>
                                                                 </div>
                                                                 <div class="clearfix">
                                                                     <div class="detailitem">
                                                                         <label class="control-label">门数</label>
-                                                                        <select class="input-xlarge" style="margin-left: 3em;">
-                                                                            <option>4门</option>
-                                                                            <option>2门</option>
+                                                                        <select id="door<s:property value=" #cars.getIndex() "/>" class="input-xlarge" style="margin-left: 3em;" name="carModel.doorCount">
+                                                                            <option id="4d" value="4">4门</option>
+                                                                            <option id="2d" value="2">2门</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="detailitem">
                                                                         <label class="control-label">座位数</label>
-                                                                        <select class="input-xlarge" style="margin-left: 2em;">
-                                                                            <option>2人</option>
-                                                                            <option>5人</option>
-                                                                            <option>7人</option>
-                                                                            <option>9人</option>
+                                                                        <select id="seat<s:property value=" #cars.getIndex() "/>" class="input-xlarge" style="margin-left: 2em;" name="carModel.seatCount">
+                                                                            <option id="2p" value="2">2人</option>
+                                                                            <option id="5p" value="5">5人</option>
+                                                                            <option id="7p" value="7">7人</option>
+                                                                            <option id="9p" value="9">9人</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="clearfix">
                                                                     <div class="detailitem">
-                                                                        <label class="control-label" for="input01">后备箱容积</label>
-                                                                        <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #carModelList.modelName " />">
+                                                                        <label class="control-label" for="input01">价格</label>
+                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #carModelList.price " />" name="carModel.price">
                                                                     </div>
                                                                     <div class="detailitem">
                                                                         <label class="control-label" for="input01">发动机转速</label>
-                                                                        <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #carModelList.modelName " />">
+                                                                        <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #carModelList.engineSpeed " />">
                                                                     </div>
                                                                 </div>
                                                                 <div class="clearfix">
                                                                     <div class="detailitem">
                                                                         <label class="control-label" for="input01">库存</label>
-                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #carModelList.modelName " />">
+                                                                        <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #carModelList.storage " />" name="carModel.storage">
                                                                     </div>
-                                                                    <div id="submit<s:property value=" #cars.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
+                                                                    <div id="submit<s:property value=" #cars.getIndex() "/>" class="btn btn-success right detailbtn" onclick="dataSubmit(<s:property value=" #cars.getIndex() " />)">提交</div>
                                                                 </div>
-                                                                <div id="cancel<s:property value=" #cars.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #cars.getIndex() "/>)">取消</div>
+                                                                <div class="clearfix">
+                                                                    <div id="cancel<s:property value=" #cars.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #cars.getIndex() "/>)">取消</div>
+                                                                </div>
                                                             </fieldset>
                                                         </form>
                                                     </div>

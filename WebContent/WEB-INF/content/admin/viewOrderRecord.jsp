@@ -132,6 +132,7 @@
                                             <div id="detail<s:property value=" #orders.getIndex() "/>" class="detail">
                                                 <form action="editOrderRecordAction" method="post">
                                                     <fieldset>
+                                                        <input type="hidden" value="<s:property value=" #orderRecordList.id " />" name="orderRecordList.id">
                                                         <div class="clearfix">
                                                             <!-- Text input-->
                                                             <div class="detailitem">
@@ -177,7 +178,7 @@
                                                                 <label class="control-label" for="input01">库存</label>
                                                                 <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.storage " />">
                                                             </div>
-                                                            <div id="submit<s:property value=" #orders.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
+                                                            <div id="submit<s:property value=" #orders.getIndex() "/>" class="btn btn-success right detailbtn" onclick="dataSubmit(<s:property value=" #cars.getIndex() " />)">提交</div>
                                                         </div>
                                                         <div id="cancel<s:property value=" #orders.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #orders.getIndex() "/>)">取消</div>
                                                     </fieldset>

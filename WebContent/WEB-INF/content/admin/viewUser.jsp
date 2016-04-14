@@ -18,6 +18,15 @@
             <script src="assets/js/layer/layer.js"></script>
             <link href="assets/css/main.css" rel="stylesheet">
             <link href="assets/css/new.css" rel="stylesheet">
+            <script type="text/javascript">
+                function edit(value) {
+                    var txt = "detail" + value;
+                    var data = "row" + value;
+                    var gender = $("#" + data).children("#genderData").html();
+                    $("#gender" + value + " #" + gender).attr("selected", "true");
+                    $("#" + txt).slideToggle(500);
+                }
+            </script>
         </head>
 
         <body class="admin">
@@ -42,47 +51,47 @@
                         </div>
                         <div class="col-sm-9 col-xs-12 list">
                             <div>
-                                <button id="create" class="btn btn-warning createbtn">
+                                <button id="create" class="btn btn-warning createbtn ">
                                     <i class="glyphicon glyphicon-plus"></i>新建
                                 </button>
                                 <div id="newform" class="header">
                                     <form class="form-horizontal" action="addUserAction" method="post">
                                         <fieldset>
-                                            <div id="legend" class="">
+                                            <div id="legend" name="user.id">
                                                 <legend class="">添加新顾客</legend>
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
                                                 <label class="control-label" for="input01">姓名</label>
-                                                <input type="text" placeholder="" class="input-xlarge">
+                                                <input type="text" placeholder="" class="input-xlarge" name="user.name">
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label">性别</label>
-                                                <select class="input-xlarge" style="float: right;">
-                                                    <option>男</option>
-                                                    <option>女</option>
-                                                    <option>其他</option>
+                                                <select class="input-xlarge" style="float: right;" name="user.gender">
+                                                    <option id="男">男</option>
+                                                    <option id="女">女</option>
+                                                    <option id="其他">其他</option>
                                                 </select>
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
                                                 <label class="control-label" for="input01">手机号</label>
-                                                <input type="text" placeholder="" class="input-xlarge">
+                                                <input type="text" placeholder="" class="input-xlarge" name="user.phone">
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
                                                 <label class="control-label" for="input01">电子邮箱</label>
-                                                <input type="text" placeholder="" class="input-xlarge">
+                                                <input type="text" placeholder="" class="input-xlarge" name="user.email">
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
                                                 <label class="control-label" for="input01">年龄</label>
-                                                <input type="text" placeholder="" class="input-xlarge">
+                                                <input type="text" placeholder="" class="input-xlarge" name="user.age">
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
                                                 <label class="control-label" for="input01">住址</label>
-                                                <input type="text" placeholder="" class="input-xlarge">
+                                                <input type="text" placeholder="" class="input-xlarge" name="user.address">
                                             </div>
                                             <div class="controls">
                                                 <div id="submit" class="btn btn-success">提交</div>
@@ -104,10 +113,10 @@
                                     <td>修改</td>
                                 </tr>
                                 <s:iterator value="#request.userList" id="userList" status="users">
-                                    <tr id="row<s:property value=" #users.getIndex() "/>" onmouseover="show('row',<s:property value=" #users.getIndex() "/>)">
+                                    <tr id="row<s:property value=" #users.getIndex() "/>">
                                         <td><s:property value="#userList.id" /></td>
                                         <td><s:property value="#userList.name" /></td>
-                                        <td><s:property value="#userList.gender" /></td>
+                                        <td id="genderData"><s:property value="#userList.gender" /></td>
                                         <td><s:property value="#userList.phone" /></td>
                                         <td><s:property value="#userList.email" /></td>
                                         <td><s:property value="#userList.age" /></td>
@@ -124,38 +133,43 @@
                                             <div id="detail<s:property value=" #users.getIndex() "/>" class="detail">
                                                 <form action="editUserAction" method="post">
                                                     <fieldset>
+                                                        <input type="hidden" value="<s:property value=" #userList.id " />" name="user.id">
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">姓名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.name " />" name="user.name">
                                                             </div>
                                                             <div class="detailitem">
-                                                                <label class="control-label" for="input01">性别</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.gender " />">
+                                                                <label class="control-label">性别</label>
+                                                                <select id="gender<s:property value=" #users.getIndex() "/>" class="input-xlarge" name="user.gender" style="margin-left: 2em;" name="user.gender">
+                                                                    <option id="男">男</option>
+                                                                    <option id="女">女</option>
+                                                                    <option id="其他">其他</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">手机号</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #userList.phone " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #userList.phone " />"name="user.phone">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">电子邮箱</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 0em;" value="<s:property value=" #userList.email " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 0em;" value="<s:property value=" #userList.email " />" name="user.email">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">年龄</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.age " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.age " />" name="user.age">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">住址</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.address " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #userList.address " />"name="user.address">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
-                                                            <div id="submit<s:property value=" #users.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
+                                                            <div id="submit<s:property value=" #users.getIndex() "/>" class="btn btn-success right detailbtn" onclick="dataSubmit(<s:property value=" #users.getIndex() " />)">提交</div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div id="cancel<s:property value=" #users.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #users.getIndex() "/>)">取消</div>
