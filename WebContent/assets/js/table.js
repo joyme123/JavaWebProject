@@ -3,9 +3,15 @@ $(document).ready(function() {
 		$('#newform').slideToggle();
 	});
 	$('#submit').click(function() {
-		$('#newform form').submit();
-		$('#newform').slideUp();
-		alert("提交成功");
+		if ($('#userNamebyID').val() == "null") {
+			alert("用户不存在!");
+		} else if ($('#carNamebyID').val() == "null") {
+			alert("车型不存在!");
+		} else {
+			$('#newform form').submit();
+			$('#newform').slideUp();
+			alert("提交成功");
+		}
 	});
 	$('#cancel').click(function() {
 		$('#newform').slideUp();
@@ -13,8 +19,15 @@ $(document).ready(function() {
 });
 function dataSubmit(value) {
 	var txt = "detail" + value;
-	$("#" + txt).slideUp(500);
-	$("#" + txt).children("form").submit();
+	if ($('#' + txt + ' #' + userNamebyID).val() == "null") {
+		alert("用户不存在!");
+	} else if ($('#' + txt + ' #' + carNamebyID).val() == "null") {
+		alert("车型不存在!");
+	} else {
+		$("#" + txt).slideUp(500);
+		$("#" + txt).children("form").submit();
+		alert("更改成功");
+	}
 }
 
 function cancel(value) {
