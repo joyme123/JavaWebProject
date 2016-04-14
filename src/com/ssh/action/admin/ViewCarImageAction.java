@@ -1,10 +1,10 @@
 package com.ssh.action.admin;
 
+import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ssh.domain.CarImage;
 import com.ssh.service.CarImageService;
 
 @SuppressWarnings("serial")
@@ -31,9 +31,9 @@ public class ViewCarImageAction extends ActionSupport {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public String execute() {
-		CarImage carImage = this.carImageService.getByCarModelId(carModelId);
+		List carImageList = this.carImageService.getByCarModelId(carModelId);
 		Map request = (Map) ActionContext.getContext().get("request");
-		request.put("carImage", carImage);
+		request.put("carImageList", carImageList);
 		return SUCCESS;
 	}
 }

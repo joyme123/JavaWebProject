@@ -1,11 +1,15 @@
 package com.ssh.service;
 
+import java.util.List;
+
 import com.ssh.domain.CarImage;
 
 public interface CarImageService {
-	public CarImage getByCarModelId(int carModelId);
+	@SuppressWarnings("rawtypes")
+	public List getByCarModelId(int carModelId);
 
-	public CarImage getById(int id);
+	@SuppressWarnings("rawtypes")
+	public List getById(int id);
 
 	public void add(CarImage carImage);
 

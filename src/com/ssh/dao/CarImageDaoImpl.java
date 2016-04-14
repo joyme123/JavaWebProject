@@ -21,7 +21,7 @@ public class CarImageDaoImpl implements CarImageDao {
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public CarImage getByCarModelId(int carModelId) {
+	public List getByCarModelId(int carModelId) {
 		Session session = sessionFactory.openSession();
 		String hql = "from CarImage car_image where car_image.carModelId='" + carModelId + "'";
 		Query query = session.createQuery(hql);
@@ -30,13 +30,13 @@ public class CarImageDaoImpl implements CarImageDao {
 		if (list.isEmpty()) {
 			return null;
 		} else {
-			return (CarImage) list.get(0);
+			return list;
 		}
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public CarImage getById(int id) {
+	public List getById(int id) {
 		Session session = sessionFactory.openSession();
 		String hql = "from CarImage car_image where car_image.id='" + id + "'";
 		Query query = session.createQuery(hql);
@@ -46,7 +46,7 @@ public class CarImageDaoImpl implements CarImageDao {
 			return null;
 		} else {
 			{
-				return (CarImage) list.get(0);
+				return list;
 			}
 		}
 	}
