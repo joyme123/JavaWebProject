@@ -138,9 +138,6 @@
 						</tr>
 						<s:iterator value="#request.carModelList" id="carModelList"
 							status="cars">
-							<%
-								
-							%>
 							<tr id="row<s:property value=" #cars.getIndex() "/>">
 								<td><button data="<s:property value="#carModelList.id" />"
 										onclick="showPic(<s:property value=" #carModelList.id"/>)">

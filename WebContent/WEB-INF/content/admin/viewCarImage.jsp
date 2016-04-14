@@ -16,6 +16,14 @@
 <body>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner" role="listbox">
+			<s:iterator value="#request.carImageList" id="carImageList"
+				status="images">
+				<s:property value="carImageList.imgUrl" />
+			</s:iterator>
+
+
+
+
 			<%
 				CarImage carImage = (CarImage) request.getAttribute("carImage");
 				String str = carImage.getImgUrl();
@@ -37,7 +45,8 @@
 				}
 			%>
 
-		</div><p><%=url.length %></p>
+		</div>
+		<p><%=url.length%></p>
 		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 	</div>
