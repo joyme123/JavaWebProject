@@ -120,6 +120,11 @@
 			<ref bean="carModelService"></ref>
 		</property>
 	</bean>
+	<bean id="getCarModelByIdAction" class="com.ssh.action.admin.GetCarModelByIdAction" scope="prototype">
+		<property name="carModelService">
+			<ref bean="carModelService"></ref>
+		</property>
+	</bean>
 
 	<bean id="userDao" class="com.ssh.dao.UserDaoImpl" scope="singleton">
 		<property name="sessionFactory">
