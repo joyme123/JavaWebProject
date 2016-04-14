@@ -13,6 +13,7 @@
 		<property name="carName" column="carName"></property>
 		<property name="discount" column="discount"></property>
 		<property name="price" column="price"></property>
+		<property name="time" column="time"></property>
 		<property name="note" column="note"></property>
 	</class>
 </hibernate-mapping>  

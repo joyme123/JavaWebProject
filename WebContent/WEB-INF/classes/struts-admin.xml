@@ -79,7 +79,7 @@
         	<result name="success"  type="chain">viewOrderRecordAction</result>
         	<result name="error">/WEB-INF/content/admin/error.jsp</result>
         </action>
-        <action name="editOrderRecordAction" class="com.ssh.action.admin.EditOrderRecordRecordAction" method="execute">
+        <action name="editOrderRecordAction" class="com.ssh.action.admin.EditOrderRecordAction" method="execute">
         	<result name="success" type="chain" >viewOrderRecordAction</result>
         	<result name="error">/WEB-INF/content/admin/error.jsp</result>
         </action>

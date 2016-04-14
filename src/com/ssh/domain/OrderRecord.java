@@ -1,6 +1,7 @@
 package com.ssh.domain;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class OrderRecord implements Serializable {
 	private static final long serialVersionUID = 7938524977476803780L;
@@ -9,12 +10,21 @@ public class OrderRecord implements Serializable {
 	private String userName;
 	private int carID;
 	private String carName;
-	private double discount;
 	private int price;
+	private double discount;
+	private Date time;
 	private String note;
 
 	public int getId() {
 		return id;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public void setId(int id) {
