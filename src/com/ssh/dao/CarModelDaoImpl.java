@@ -33,7 +33,7 @@ public class CarModelDaoImpl implements CarModelDao {
 	@Override
 	public CarModel getCarModelByName(String name) {
 		Session session = sessionFactory.openSession();
-		String hql = "from CarModel car_model where car_model.modelName = '" + name + "'";
+		String hql = "from CarModel car_model where car_model.modelName  = '" + name + "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();
@@ -84,7 +84,7 @@ public class CarModelDaoImpl implements CarModelDao {
 		int pageSize = queryResult.getPageSize();
 		int left = ((page - 1) * pageSize) > 0 ? (page - 1) * pageSize : 0;
 		// int right = page * pageSize > 0 ? page * pageSize : 0;
-		String hql = "from CarModel car_model order by car_model.id";
+		String hql = "from CarModel car_model order by car_model.id DESC";
 		Query query = session.createQuery(hql);
 		query.setFirstResult(left);
 		query.setMaxResults(pageSize);

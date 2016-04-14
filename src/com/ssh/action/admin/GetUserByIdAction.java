@@ -9,7 +9,7 @@ import com.ssh.service.UserService;
 
 public class GetUserByIdAction implements Action {
 	private int id;
-	private InputStream inputStream;// 封装输出结果的二进制流
+	private InputStream inputStream;
 	private UserService userService;
 
 	public int getId() {

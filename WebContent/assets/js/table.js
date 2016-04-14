@@ -19,9 +19,9 @@ $(document).ready(function() {
 });
 function dataSubmit(value) {
 	var txt = "detail" + value;
-	if ($('#' + txt + ' #' + userNamebyID).val() == "null") {
+	if ($('#userNamebyID' + value).val() == "null") {
 		alert("用户不存在!");
-	} else if ($('#' + txt + ' #' + carNamebyID).val() == "null") {
+	} else if ($('#carNameEditByID' + value).val() == "null") {
 		alert("车型不存在!");
 	} else {
 		$("#" + txt).slideUp(500);

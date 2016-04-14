@@ -95,9 +95,9 @@
 								<div class="control-group">
 									<!-- Text input-->
 									<label class="control-label" for="input01">用户名</label> <input
-										id="userNamebyID" disabled="disabled" type="text"
-										placeholder="" class="input-xlarge"
-										name="orderRecord.userName" value="null">
+										id="userNamebyID" readonly="readonly" type="text"
+										style="background-color: #dfdfdf;" placeholder=""
+										class="input-xlarge" name="orderRecord.userName" value="null">
 								</div>
 								<div class="control-group">
 									<!-- Text input-->
@@ -108,9 +108,9 @@
 								<div class="control-group">
 									<!-- Text input-->
 									<label class="control-label" for="input01">商品名</label> <input
-										id="carNamebyID" disabled="disabled" type="text"
-										placeholder="" class="input-xlarge" name="orderRecord.carName"
-										value="null">
+										id="carNamebyID" readonly="readonly" type="text"
+										style="background-color: #dfdfdf;" placeholder=""
+										class="input-xlarge" name="orderRecord.carName" value="null">
 								</div>
 								<div class="control-group">
 									<!-- Text input-->
@@ -191,7 +191,7 @@
 											<div class="clearfix">
 												<div class="detailitem">
 													<label class="control-label" for="input01">用户ID</label> <input
-														onchange="userIDChange(this,'userNameEditByID')"
+														onchange="userIDChange(this,'userNameEditByID<s:property value=" #orders.getIndex() "/>')"
 														type="text" placeholder="" class="input-xlarge"
 														style="margin-left: 1em;"
 														value="<s:property value=" #orderRecordList.userID " />"
@@ -199,9 +199,9 @@
 												</div>
 												<div class="detailitem">
 													<label class="control-label" for="input01">用户名</label> <input
-														id="userNameEditByID" disabled="disabled" type="text"
-														placeholder="" class="input-xlarge"
-														style="margin-left: 1em;"
+														id="userNameEditByID<s:property value=" #orders.getIndex() "/>"
+														disabled="disabled" type="text" placeholder=""
+														class="input-xlarge" style="margin-left: 1em;"
 														value="<s:property value=" #orderRecordList.userName " />"
 														name="orderRecord.userName">
 												</div>
@@ -209,7 +209,7 @@
 											<div class="clearfix">
 												<div class="detailitem">
 													<label class="control-label" for="input01">车型ID</label> <input
-														onchange="carIDChange(this,'carNameEditByID')"
+														onchange="carIDChange(this,'carNameEditByID<s:property value=" #orders.getIndex() "/>')"
 														type="text" placeholder="" class="input-xlarge"
 														style="margin-left: 1em;"
 														value="<s:property value=" #orderRecordList.carID " />"
@@ -217,9 +217,9 @@
 												</div>
 												<div class="detailitem">
 													<label class="control-label" for="input01">车型名</label> <input
-														id="carNameEditByID" disabled="disabled" type="text"
-														placeholder="" class="input-xlarge"
-														style="margin-left: 1em;"
+														id="carNameEditByID<s:property value=" #orders.getIndex() "/>"
+														disabled="disabled" type="text" placeholder=""
+														class="input-xlarge" style="margin-left: 1em;"
 														value="<s:property value=" #orderRecordList.carName " />"
 														name="orderRecord.carName">
 												</div>
