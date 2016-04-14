@@ -1,11 +1,15 @@
 package com.ssh.dao;
 
+import java.util.List;
+
 import com.ssh.domain.CarImage;
 
 public interface CarImageDao {
-	public CarImage getByCarModelId(int carModelId);
+	@SuppressWarnings("rawtypes")
+	public List getByCarModelId(int carModelId);
 
-	public CarImage getById(int id);
+	@SuppressWarnings("rawtypes")
+	public List getById(int id);
 
 	public void add(CarImage carImage);
 

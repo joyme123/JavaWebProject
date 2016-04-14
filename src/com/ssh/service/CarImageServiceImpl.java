@@ -1,5 +1,7 @@
 package com.ssh.service;
 
+import java.util.List;
+
 import com.ssh.dao.CarImageDao;
 import com.ssh.domain.CarImage;
 
@@ -14,13 +16,15 @@ public class CarImageServiceImpl implements CarImageService {
 		this.carImageDao = carImageDao;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public CarImage getByCarModelId(int carModelId) {
+	public List getByCarModelId(int carModelId) {
 		return this.carImageDao.getByCarModelId(carModelId);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
-	public CarImage getById(int id) {
+	public List getById(int id) {
 
 		return this.carImageDao.getById(id);
 	}
