@@ -19,19 +19,28 @@
             <link href="assets/css/main.css" rel="stylesheet">
             <link href="assets/css/new.css" rel="stylesheet">
             <script type="text/javascript">
-                function userIDChange(object) {
+                function userIDChange(object, userName) {
                     var user = new Array();
                     user = [{
                         name: 'id',
                         value: object.value
-			}];
-
+                    }];
                     $.get("getUserByIdAction", user,
                         function (data, statusText) {
-                            $("#userNamebyID").attr("value", data);
+                            $("#" + userName).attr("value", data);
                         }, "html");
+                }
 
-
+                function carIDChange(object, carName) {
+                    var user = new Array();
+                    user = [{
+                        name: 'id',
+                        value: object.value
+                    }];
+                    $.get("getCarModelByIdAction", user,
+                        function (data, statusText) {
+                            $("#" + carName).attr("value", data);
+                        }, "html");
                 }
 
                 function edit(value) {
@@ -79,7 +88,7 @@
                                             <div class="control-group">
                                                 <!-- Text input-->
                                                 <label class="control-label" for="input01">用户编号</label>
-                                                <input onchange="userIDChange(this)" type="text" placeholder="" class="input-xlarge" name="orderRecord.userID">
+                                                <input onchange="userIDChange(this,'userNamebyID')" type="text" placeholder="" class="input-xlarge" name="orderRecord.userID">
                                             </div>
                                             <div class="control-group">
                                                 <!-- Text input-->
@@ -165,11 +174,11 @@
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">用户ID</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #orderRecordList.userID " />" name="orderRecord.userID">
+                                                                <input onchange="userIDChange(this,'userNameEditByID')" type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #orderRecordList.userID " />" name="orderRecord.userID">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">用户名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #orderRecordList.userName " />" name="orderRecord.userName">
+                                                                <input id="userNameEditByID" disabled="disabled" type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #orderRecordList.userName " />" name="orderRecord.userName">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
@@ -179,7 +188,7 @@
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">车型名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #orderRecordList.carName " />" name="orderRecord.carName">
+                                                                <input disabled="disabled" type="text" placeholder="" class="input-xlarge" style="margin-left: 1em;" value="<s:property value=" #orderRecordList.carName " />" name="orderRecord.carName">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
