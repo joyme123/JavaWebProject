@@ -33,7 +33,7 @@ public class CarModelDaoImpl implements CarModelDao {
 	@Override
 	public CarModel getCarModelByName(String name) {
 		Session session = sessionFactory.openSession();
-		String hql = "from CarModel car_model where car_model.model_name = '" + name + "'";
+		String hql = "from CarModel car_model where car_model.modelName = '" + name + "'";
 		Query query = session.createQuery(hql);
 		List list = query.list();
 		session.close();

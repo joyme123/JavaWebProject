@@ -24,7 +24,7 @@
             <%@include file="../navbar.jsp"%>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-3 navlist">
+                        <div class="col-sm-3 hidden-xs navlist">
                             <ul class="nav nav-list menu">
                                 <li><a href="viewCarModelAction">车型管理</a></li>
                             </ul>
@@ -38,7 +38,7 @@
                                 <li><a href="dispatcherAction!goAddCarImage">图片上传</a></li>
                             </ul>
                         </div>
-                        <div class="col-xs-9 list">
+                        <div class="col-sm-9 col-xs-12 list">
                             <div>
                                 <button id="create" class="btn btn-warning createbtn">
                                     <i class="glyphicon glyphicon-plus"></i>新建
@@ -112,12 +112,12 @@
                                 <s:iterator value="#request.orderRecordList" id="orderRecordList" status="orders">
                                     <tr id="row<s:property value=" #orders.getIndex() "/>" onmouseover="show('row',<s:property value=" #orders.getIndex() "/>)">
                                         <td><s:property value="#orderRecordList.id" /></td>
-                                        <td><s:property value="#orderRecordList.userId" /></td>
-                                        <td><s:property value="#orderRecordList.userId" /></td>
-                                        <td><s:property value="#orderRecordList.carModelId" /></td>
-                                        <td><s:property value="#orderRecordList.carModelId" /></td>
+                                        <td><s:property value="#orderRecordList.userID" /></td>
+                                        <td><s:property value="#orderRecordList.userName" /></td>
+                                        <td><s:property value="#orderRecordList.carID" /></td>
+                                        <td><s:property value="#orderRecordList.carName" /></td>
                                         <td><s:property value="#orderRecordList.discount" /></td>
-                                        <td><s:property value="#orderRecordList.orderMoney" /></td>
+                                        <td><s:property value="#orderRecordList.price" /></td>
                                         <td><s:property value="#orderRecordList.note" /></td>
                                         <td>
                                             <a id="update<s:property value=" #orders.getIndex() "/>" class="btn btn-success tablebtn" onclick="edit(<s:property value=" #orders.getIndex() "/>)">
@@ -132,16 +132,17 @@
                                             <div id="detail<s:property value=" #orders.getIndex() "/>" class="detail">
                                                 <form action="editOrderRecordAction" method="post">
                                                     <fieldset>
+                                                        <input type="hidden" value="<s:property value=" #orderRecordList.id " />" name="orderRecordList.id">
                                                         <div class="clearfix">
                                                             <!-- Text input-->
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">车型名</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 2em;" value="<s:property value=" #orderRecordList.name " />">
                                                             </div>
 
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">颜色</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.color " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
@@ -164,20 +165,20 @@
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
-                                                                <label class="control-label" for="input01">后备箱容积</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #orderRecordList.id " />">
+                                                                <label class="control-label" for="input01">价格</label>
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.price " />">
                                                             </div>
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">发动机转速</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" value="<s:property value=" #orderRecordList.engineSpeed " />">
                                                             </div>
                                                         </div>
                                                         <div class="clearfix">
                                                             <div class="detailitem">
                                                                 <label class="control-label" for="input01">库存</label>
-                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.id " />">
+                                                                <input type="text" placeholder="" class="input-xlarge" style="margin-left: 3em;" value="<s:property value=" #orderRecordList.storage " />">
                                                             </div>
-                                                            <div id="submit<s:property value=" #orders.getIndex() "/>" class="btn btn-success right detailbtn">提交</div>
+                                                            <div id="submit<s:property value=" #orders.getIndex() "/>" class="btn btn-success right detailbtn" onclick="dataSubmit(<s:property value=" #cars.getIndex() " />)">提交</div>
                                                         </div>
                                                         <div id="cancel<s:property value=" #orders.getIndex() "/>" class="btn btn-danger right detailbtn" onclick="cancel(<s:property value=" #orders.getIndex() "/>)">取消</div>
                                                     </fieldset>

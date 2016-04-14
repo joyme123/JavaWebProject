@@ -2,16 +2,16 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.ssh.domain">  
-    <class name="User" table="user">  
-        <id name="id" column="id">  
-            <generator class="native"></generator>  
-        </id>  
-        <property name="name" column="name"></property>  
-        <property name="phoneNumber" column="phone_number"></property> 
-        <property name="email" column="email"></property>   
-        <property name="sex" column="sex"></property>
-        <property name="age" column="age"></property>
-        <property name="address" column="address"></property>   
-    </class>  
+<hibernate-mapping package="com.ssh.domain">
+	<class name="User" table="user">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name"></property>
+		<property name="gender" column="gender"></property>
+		<property name="phone" column="phone"></property>
+		<property name="email" column="email"></property>
+		<property name="age" column="age"></property>
+		<property name="address" column="address"></property>
+	</class>
 </hibernate-mapping>  
