@@ -36,7 +36,7 @@
                             title: false,
                             shadeClose: true,
                             shade: 0.8,
-                            area: ["70%", '70%'],
+                            area: ["95%", '95%'],
                             content: 'viewCarImageAction?carModelId='+value
                         });
                     }

@@ -200,7 +200,7 @@
 												<div class="detailitem">
 													<label class="control-label" for="input01">用户名</label> <input
 														id="userNameEditByID<s:property value=" #orders.getIndex() "/>"
-														disabled="disabled" type="text" placeholder=""
+														readonly="readonly" type="text" placeholder=""
 														class="input-xlarge" style="margin-left: 1em;"
 														value="<s:property value=" #orderRecordList.userName " />"
 														name="orderRecord.userName">
@@ -218,7 +218,7 @@
 												<div class="detailitem">
 													<label class="control-label" for="input01">车型名</label> <input
 														id="carNameEditByID<s:property value=" #orders.getIndex() "/>"
-														disabled="disabled" type="text" placeholder=""
+														readonly="readonly" type="text" placeholder=""
 														class="input-xlarge" style="margin-left: 1em;"
 														value="<s:property value=" #orderRecordList.carName " />"
 														name="orderRecord.carName">

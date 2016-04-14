@@ -41,16 +41,18 @@
 				</div>
 			</div>
 			<div class="col-sm-9 col-xs-12 list">
-				<button onclick="addFile()" class="btn btn-warning addbtn">
-					<i class="glyphicon glyphicon-plus
-glyphicon "></i>增加图片
+				<button onclick="addFile()" class="btn btn-info addbtn">
+					<i class="glyphicon glyphicon-plus glyphicon "></i>增加图片
+				</button>
+				<button onclick="subFile()" class="btn btn-danger addbtn">
+					<i class="glyphicon glyphicon-minus glyphicon "></i>减少图片
 				</button>
 				<form id="addFile" action="addCarImageAction" method="post"
 					enctype="multipart/form-data">
-					<input type="file" class="form-control file" name="uploadFile"
-						id="uploadFile"> <input id="carID" name="carModelId"
-						placeholder="  车型ID"> <input class="btn btn-success"
-						type="submit" value="上传">
+					<input id="firstFile" type="file" class="form-control file"
+						name="uploadFile"> <input id="carID"
+						name="carModelId" placeholder="  车型ID"> <input
+						class="btn btn-success" type="submit" value="上传">
 				</form>
 			</div>
 		</div>

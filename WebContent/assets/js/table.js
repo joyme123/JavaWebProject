@@ -36,9 +36,12 @@ function cancel(value) {
 }
 
 function addFile() {
-	if (true) {
-		$("#carID")
-				.before(
-						"<input type=\"file\"  class=\"form-control file\" name = \"uploadFile\" id = \"uploadFile\">");
+	$("#carID")
+			.before(
+					"<input type=\"file\"  class=\"form-control file\" name = \"uploadFile\" id = \"uploadFile\">");
+}
+function subFile() {
+	if ($("#carID").prev().attr("id") != "firstFile") {
+		$("#carID").prev().remove();
 	}
 }
